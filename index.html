@@ -11,8 +11,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NBNE — Beautiful websites that actually run your business</title>
-  <meta name="description" content="One flat price. No per-seat charges. Booking, payments, compliance, CRM — all included. Built in the UK for UK businesses.">
+  <title>NBNE — Website, Bookings &amp; Back Office in One Platform</title>
+  <meta name="description" content="A beautiful website, online booking, staff management, CRM and compliance — all in one platform. Built in the UK. One flat price. No per-seat charges.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -86,47 +86,64 @@
       .mobile-btn { display: block !important; }
     }
 
-    /* ── Hero ── */
+    /* ── Hero (split layout) ── */
     .hero {
       position: relative; min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format');
-      background-size: cover; background-position: center;
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+      background: linear-gradient(135deg, #0a0f1c 0%, #111827 50%, #0f172a 100%);
+      overflow: hidden;
     }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.65) 100%);
-    }
-    .hero-content {
-      position: relative; text-align: center; padding: 2rem; max-width: 800px;
+    .hero-text {
+      padding: 6rem 2rem 4rem 4rem; position: relative; z-index: 2;
     }
     .hero-badge {
-      display: inline-block; background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(8px); padding: 0.4rem 1.25rem;
-      border-radius: 20px; margin-bottom: 2rem;
-      font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.9);
-      letter-spacing: 0.05em; border: 1px solid rgba(255,255,255,0.15);
+      display: inline-block; background: rgba(37,99,235,0.15);
+      padding: 0.4rem 1.25rem; border-radius: 20px; margin-bottom: 2rem;
+      font-size: 0.82rem; font-weight: 600; color: #60a5fa;
+      letter-spacing: 0.05em; border: 1px solid rgba(37,99,235,0.25);
     }
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 600; color: #fff; line-height: 1.08;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 600; color: #fff; line-height: 1.12;
       margin-bottom: 1.5rem; letter-spacing: -0.02em;
     }
-    .hero h1 em { font-style: italic; font-weight: 400; }
+    .hero h1 em { font-style: italic; font-weight: 400; color: #93c5fd; }
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(255,255,255,0.75); font-weight: 400;
-      margin-bottom: 2.5rem; line-height: 1.6;
-      max-width: 600px; margin-left: auto; margin-right: auto;
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: rgba(255,255,255,0.6); font-weight: 400;
+      margin-bottom: 2rem; line-height: 1.7; max-width: 480px;
     }
-    .hero-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .hero-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-admin {
+      background: #2563eb; color: #fff; padding: 0.9rem 2rem;
+      text-decoration: none; font-weight: 700; font-size: 0.9rem;
+      border-radius: 6px; transition: background 0.2s; border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-admin:hover { background: #1d4ed8; }
+    .btn-admin .arrow { transition: transform 0.2s; }
+    .btn-admin:hover .arrow { transform: translateX(3px); }
     .btn-primary {
       background: #fff; color: var(--dark); padding: 0.9rem 2.25rem;
       text-decoration: none; font-weight: 700; font-size: 0.9rem;
       border-radius: 6px; transition: transform 0.2s; border: none; cursor: pointer;
     }
     .btn-primary:hover { transform: translateY(-1px); }
+    .btn-outline-hero {
+      background: transparent; color: rgba(255,255,255,0.8); padding: 0.9rem 2rem;
+      text-decoration: none; font-weight: 500; font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
+      transition: border-color 0.2s; cursor: pointer;
+    }
+    .btn-outline-hero:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .hero-cred {
+      margin-top: 1rem; font-size: 0.78rem; color: rgba(255,255,255,0.3);
+    }
+    .hero-cred code {
+      background: rgba(255,255,255,0.08); padding: 0.15rem 0.5rem;
+      border-radius: 3px; font-family: 'SF Mono', monospace; font-size: 0.75rem;
+    }
     .btn-outline {
       background: transparent; color: #fff; padding: 0.9rem 2.25rem;
       text-decoration: none; font-weight: 500; font-size: 0.9rem;
@@ -134,14 +151,140 @@
       transition: border-color 0.2s; cursor: pointer;
     }
     .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
-    .scroll-indicator {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      color: rgba(255,255,255,0.4); font-size: 0.7rem; text-align: center;
-      letter-spacing: 0.15em; text-transform: uppercase;
+
+    /* ── Dashboard mockup (hero right side) ── */
+    .hero-mockup {
+      position: relative; padding: 4rem 3rem 4rem 0; z-index: 2;
     }
-    .scroll-indicator .line {
-      width: 1px; height: 36px; background: rgba(255,255,255,0.25);
-      margin: 0 auto 0.5rem;
+    .mockup-frame {
+      background: #1e293b; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .mockup-topbar {
+      background: #0f172a; padding: 0.6rem 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mockup-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .mockup-dot.r { background: #ef4444; }
+    .mockup-dot.y { background: #eab308; }
+    .mockup-dot.g { background: #22c55e; }
+    .mockup-url {
+      flex: 1; text-align: center; font-size: 0.65rem;
+      color: rgba(255,255,255,0.3); font-family: monospace;
+    }
+    .mockup-body {
+      display: grid; grid-template-columns: 180px 1fr; min-height: 320px;
+    }
+    .mockup-sidebar {
+      background: #0f172a; padding: 1rem 0.75rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .mockup-sidebar-title {
+      font-size: 0.7rem; font-weight: 700; color: #60a5fa;
+      padding: 0.25rem 0.5rem; margin-bottom: 0.75rem;
+    }
+    .mockup-nav-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 0.5rem; border-radius: 5px; margin-bottom: 0.2rem;
+      font-size: 0.72rem; color: rgba(255,255,255,0.45); cursor: default;
+      transition: background 0.15s;
+    }
+    .mockup-nav-item.active {
+      background: rgba(37,99,235,0.15); color: #93c5fd;
+    }
+    .mockup-main { padding: 1rem 1.25rem; }
+    .mockup-h { font-size: 0.9rem; font-weight: 700; color: #e2e8f0; margin-bottom: 0.75rem; }
+    .mockup-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1rem;
+    }
+    .mockup-stat {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px; padding: 0.6rem 0.5rem; text-align: center;
+    }
+    .mockup-stat .num {
+      font-size: 1.15rem; font-weight: 800; color: #fff; display: block;
+    }
+    .mockup-stat .lbl {
+      font-size: 0.6rem; color: rgba(255,255,255,0.4); text-transform: uppercase;
+      letter-spacing: 0.05em; margin-top: 0.15rem; display: block;
+    }
+    .mockup-table {
+      width: 100%; border-collapse: collapse;
+    }
+    .mockup-table th {
+      text-align: left; font-size: 0.6rem; color: rgba(255,255,255,0.3);
+      text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mockup-table td {
+      font-size: 0.72rem; color: rgba(255,255,255,0.6); padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .mockup-badge {
+      display: inline-block; padding: 0.15rem 0.5rem; border-radius: 10px;
+      font-size: 0.6rem; font-weight: 600;
+    }
+    .badge-confirmed { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .badge-pending { background: rgba(234,179,8,0.15); color: #facc15; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 7rem 2rem 2rem; text-align: center; }
+      .hero-buttons { justify-content: center; }
+      .hero-cred { text-align: center; }
+      .hero-mockup { padding: 1rem 1.5rem 3rem; }
+      .mockup-body { grid-template-columns: 1fr; }
+      .mockup-sidebar { display: none; }
+    }
+
+    /* ── Admin Showcase (scrolling screenshots) ── */
+    .showcase { padding: 6rem 2rem; background: #0f172a; overflow: hidden; }
+    .showcase-inner { max-width: 1100px; margin: 0 auto; }
+    .showcase .section-label { color: #60a5fa; }
+    .showcase .section-title { color: #fff; }
+    .showcase .section-sub { color: rgba(255,255,255,0.5); }
+    .showcase-scroll {
+      display: flex; gap: 1.5rem; margin-top: 3.5rem;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      padding-bottom: 1rem; -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; scrollbar-color: #334155 transparent;
+    }
+    .showcase-scroll::-webkit-scrollbar { height: 6px; }
+    .showcase-scroll::-webkit-scrollbar-track { background: transparent; }
+    .showcase-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    .showcase-card {
+      flex: 0 0 300px; scroll-snap-align: start;
+      background: #1e293b; border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.2s;
+    }
+    .showcase-card:hover { transform: translateY(-3px); }
+    .showcase-card-icon {
+      padding: 1.5rem 1.25rem 0; font-size: 2rem;
+    }
+    .showcase-card-body { padding: 1rem 1.25rem 1.5rem; }
+    .showcase-card h3 {
+      font-size: 1rem; font-weight: 700; color: #e2e8f0; margin-bottom: 0.4rem;
+    }
+    .showcase-card p {
+      font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.6;
+    }
+    .showcase-cta {
+      text-align: center; margin-top: 2.5rem;
+    }
+    .showcase-cta a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #2563eb; color: #fff; padding: 0.8rem 2rem;
+      border-radius: 6px; text-decoration: none; font-weight: 700;
+      font-size: 0.9rem; transition: background 0.2s;
+    }
+    .showcase-cta a:hover { background: #1d4ed8; }
+    .showcase-cta p {
+      margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.3);
     }
 
     /* ── Social Proof ── */
@@ -469,23 +612,82 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-badge">UK-Built &middot; No Hidden Fees &middot; Unlimited Staff</div>
-      <h1>Beautiful websites that<br><em>actually run your business</em></h1>
+    <div class="hero-text">
+      <div class="hero-badge">UK-Built &middot; One Flat Price &middot; Unlimited Staff</div>
+      <h1>Your website, bookings<br>&amp; back office &mdash;<br><em>one platform</em></h1>
       <p class="hero-sub">
-        One flat price. No per-seat charges. Add as many staff as you want.
-        Booking, payments, compliance, CRM &mdash; all included. We even handle the stuff
-        you keep meaning to sort out, like PAT certs and document audits.
+        A beautiful website your customers see, plus the admin panel you actually run your
+        business from. Bookings, staff rotas, CRM, compliance &mdash; all in one place.
+        No per-seat charges. No stitching tools together.
       </p>
       <div class="hero-buttons">
-        <a href="#demos" class="btn-primary">View Live Demos</a>
-        <a href="#pricing" class="btn-outline">See Pricing</a>
+        <a href="https://salon-x2.vercel.app/admin" target="_blank" rel="noopener" class="btn-admin">
+          Try the Admin Panel <span class="arrow">&rarr;</span>
+        </a>
+        <a href="#demos" class="btn-outline-hero">View Live Demos</a>
       </div>
+      <p class="hero-cred">
+        Demo login: <code>owner</code> / <code>admin123</code> &mdash; no signup needed
+      </p>
     </div>
-    <div class="scroll-indicator">
-      <div class="line"></div>
-      Explore
+    <div class="hero-mockup">
+      <div class="mockup-frame">
+        <div class="mockup-topbar">
+          <span class="mockup-dot r"></span>
+          <span class="mockup-dot y"></span>
+          <span class="mockup-dot g"></span>
+          <span class="mockup-url">salon-x.nbne.uk/admin</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="mockup-sidebar-title">Salon X</div>
+            <div class="mockup-nav-item active">&#128202; Dashboard</div>
+            <div class="mockup-nav-item">&#128197; Bookings</div>
+            <div class="mockup-nav-item">&#128176; Revenue</div>
+            <div class="mockup-nav-item">&#128135; Staff</div>
+            <div class="mockup-nav-item">&#128203; Compliance</div>
+            <div class="mockup-nav-item">&#128200; CRM</div>
+            <div class="mockup-nav-item">&#128172; Comms</div>
+            <div class="mockup-nav-item">&#128196; Documents</div>
+          </div>
+          <div class="mockup-main">
+            <div class="mockup-h">Dashboard</div>
+            <div class="mockup-stats">
+              <div class="mockup-stat">
+                <span class="num">12</span>
+                <span class="lbl">Today</span>
+              </div>
+              <div class="mockup-stat">
+                <span class="num">&pound;1,240</span>
+                <span class="lbl">This Week</span>
+              </div>
+              <div class="mockup-stat">
+                <span class="num">3</span>
+                <span class="lbl">Staff On</span>
+              </div>
+            </div>
+            <table class="mockup-table">
+              <tr><th>Client</th><th>Service</th><th>Time</th><th>Status</th></tr>
+              <tr>
+                <td>Alice H.</td><td>Cut &amp; Style</td><td>10:00</td>
+                <td><span class="mockup-badge badge-confirmed">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td>Ben C.</td><td>Colour Full</td><td>11:30</td>
+                <td><span class="mockup-badge badge-confirmed">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td>Grace L.</td><td>Balayage</td><td>13:00</td>
+                <td><span class="mockup-badge badge-pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Dylan F.</td><td>Gents Cut</td><td>14:30</td>
+                <td><span class="mockup-badge badge-confirmed">Confirmed</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -505,14 +707,15 @@
         <div class="section-label">Live Demos</div>
         <h2 class="section-title">See What We Build</h2>
         <p class="section-sub">
-          Explore our live demo websites. Each one is a fully functional example of what we deliver to clients &mdash; click through, book an appointment, try the admin panel.
+          Each demo has two sides: the <strong>customer website</strong> your clients see, and the
+          <strong>admin panel</strong> where you manage everything. Try both.
         </p>
       </div>
 
       <div class="demo-grid">
 
         <!-- Salon X -->
-        <a class="demo-card" href="https://salon-x2.vercel.app" target="_blank" rel="noopener">
+        <div class="demo-card">
           <div class="demo-card-img">
             <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80&auto=format" alt="Salon X" loading="lazy">
             <div class="overlay" style="background:linear-gradient(transparent 40%, #8B6F47cc 100%);"></div>
@@ -523,19 +726,21 @@
             <div class="badge badge-live" style="color:#8B6F47;">Live Demo</div>
           </div>
           <div class="demo-card-body">
-            <p>A stunning salon website with online booking, Stripe payments, staff profiles, and a full gallery. Everything a modern salon needs.</p>
+            <p>Online booking, Stripe deposits, staff profiles, gallery. Everything a modern salon needs.</p>
             <div class="demo-tags">
               <span class="demo-tag">Online Booking</span>
               <span class="demo-tag">Stripe Deposits</span>
               <span class="demo-tag">Staff Profiles</span>
-              <span class="demo-tag">Service Menu</span>
             </div>
-            <div class="demo-link" style="color:#8B6F47;">Explore Demo <span>&rarr;</span></div>
+            <div style="display:flex; gap:1rem; margin-top:1.25rem;">
+              <a href="https://salon-x2.vercel.app" target="_blank" rel="noopener" class="demo-link" style="color:#8B6F47; text-decoration:none;">Customer Site &rarr;</a>
+              <a href="https://salon-x2.vercel.app/admin" target="_blank" rel="noopener" class="demo-link" style="color:#2563eb; text-decoration:none; font-weight:700;">Try Admin &rarr;</a>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- FitHub -->
-        <a class="demo-card" href="https://nbne-business-health-club-x.vercel.app" target="_blank" rel="noopener">
+        <div class="demo-card">
           <div class="demo-card-img">
             <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80&auto=format" alt="FitHub" loading="lazy">
             <div class="overlay" style="background:linear-gradient(transparent 40%, #dc2626cc 100%);"></div>
@@ -546,19 +751,21 @@
             <div class="badge badge-live" style="color:#dc2626;">Live Demo</div>
           </div>
           <div class="demo-card-body">
-            <p>A high-energy gym website with class timetables, membership sign-ups, trainer bios, and integrated booking for PT sessions.</p>
+            <p>Class timetables, PT booking, membership plans, and trainer profiles for gyms and studios.</p>
             <div class="demo-tags">
               <span class="demo-tag">Class Timetable</span>
               <span class="demo-tag">PT Booking</span>
               <span class="demo-tag">Membership Plans</span>
-              <span class="demo-tag">Trainer Profiles</span>
             </div>
-            <div class="demo-link" style="color:#dc2626;">Explore Demo <span>&rarr;</span></div>
+            <div style="display:flex; gap:1rem; margin-top:1.25rem;">
+              <a href="https://nbne-business-health-club-x.vercel.app" target="_blank" rel="noopener" class="demo-link" style="color:#dc2626; text-decoration:none;">Customer Site &rarr;</a>
+              <a href="https://nbne-business-health-club-x.vercel.app/admin" target="_blank" rel="noopener" class="demo-link" style="color:#2563eb; text-decoration:none; font-weight:700;">Try Admin &rarr;</a>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- Tavola -->
-        <a class="demo-card" href="https://tavola-gray.vercel.app" target="_blank" rel="noopener">
+        <div class="demo-card">
           <div class="demo-card-img">
             <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&auto=format" alt="Tavola" loading="lazy">
             <div class="overlay" style="background:linear-gradient(transparent 40%, #059669cc 100%);"></div>
@@ -569,17 +776,95 @@
             <div class="badge badge-live" style="color:#059669;">Live Demo</div>
           </div>
           <div class="demo-card-body">
-            <p>An elegant restaurant website with table reservations, seasonal menus, chef profiles, and event booking for private dining.</p>
+            <p>Table reservations, seasonal menus, chef profiles, and event booking for private dining.</p>
             <div class="demo-tags">
               <span class="demo-tag">Table Reservations</span>
               <span class="demo-tag">Menu Display</span>
               <span class="demo-tag">Event Booking</span>
-              <span class="demo-tag">Chef Profiles</span>
             </div>
-            <div class="demo-link" style="color:#059669;">Explore Demo <span>&rarr;</span></div>
+            <div style="display:flex; gap:1rem; margin-top:1.25rem;">
+              <a href="https://tavola-gray.vercel.app" target="_blank" rel="noopener" class="demo-link" style="color:#059669; text-decoration:none;">Customer Site &rarr;</a>
+              <a href="https://tavola-gray.vercel.app/admin" target="_blank" rel="noopener" class="demo-link" style="color:#2563eb; text-decoration:none; font-weight:700;">Try Admin &rarr;</a>
+            </div>
           </div>
-        </a>
+        </div>
 
+      </div>
+      <p style="text-align:center; margin-top:1.5rem; font-size:0.82rem; color:var(--muted);">
+        Login to any admin panel with <strong>owner</strong> / <strong>admin123</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- Inside the Admin Panel -->
+  <section class="showcase">
+    <div class="showcase-inner">
+      <div style="text-align:center; margin-bottom:0;">
+        <div class="section-label">Inside the Admin Panel</div>
+        <h2 class="section-title">This Is What You Actually Use Every Day</h2>
+        <p class="section-sub">
+          The website is what your customers see. The admin panel is where <em>you</em> run your business.
+          Here&rsquo;s what&rsquo;s inside.
+        </p>
+      </div>
+
+      <div class="showcase-scroll">
+        <div class="showcase-card">
+          <div class="showcase-card-icon">&#128202;</div>
+          <div class="showcase-card-body">
+            <h3>Dashboard</h3>
+            <p>Today&rsquo;s bookings, weekly revenue, staff on duty, pending actions &mdash; everything at a glance when you open the app.</p>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-icon">&#128197;</div>
+          <div class="showcase-card-body">
+            <h3>Booking Calendar</h3>
+            <p>See all bookings by day, week, or staff member. Confirm, cancel, reschedule. Customers get instant email confirmations.</p>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-icon">&#128101;</div>
+          <div class="showcase-card-body">
+            <h3>Staff &amp; Rotas</h3>
+            <p>Working hours, rotas, timesheets, leave requests, sick days. Know who&rsquo;s in, who&rsquo;s off, and what they&rsquo;re owed.</p>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-icon">&#128200;</div>
+          <div class="showcase-card-body">
+            <h3>CRM &amp; Leads</h3>
+            <p>Every enquiry tracked from first contact to paying customer. Pipeline stages, notes, follow-up reminders. Never lose a lead.</p>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-icon">&#128203;</div>
+          <div class="showcase-card-body">
+            <h3>Compliance</h3>
+            <p>PAT certificates, risk assessments, disclaimers, document vault with expiry tracking. Stay inspection-ready without the spreadsheets.</p>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-icon">&#128172;</div>
+          <div class="showcase-card-body">
+            <h3>Team Comms</h3>
+            <p>Internal messaging channels for your team. Announcements, shift notes, handovers &mdash; no more WhatsApp chaos.</p>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-icon">&#128176;</div>
+          <div class="showcase-card-body">
+            <h3>Payments &amp; Revenue</h3>
+            <p>Stripe deposits, revenue reports, service breakdowns. See exactly what&rsquo;s coming in and what each service earns.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-cta">
+        <a href="https://salon-x2.vercel.app/admin" target="_blank" rel="noopener">
+          Try the Admin Panel Now &rarr;
+        </a>
+        <p>Login: <strong>owner</strong> / <strong>admin123</strong></p>
       </div>
     </div>
   </section>
@@ -597,32 +882,32 @@
 
       <div class="feature-grid">
         <div class="feature-card">
-          <div class="feature-icon">📅</div>
+          <div class="feature-icon">&#128197;</div>
           <h3>Online Booking</h3>
           <p>Customers book 24/7. Real-time availability, staff assignment, and instant confirmation.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">💳</div>
+          <div class="feature-icon">&#128179;</div>
           <h3>Stripe Payments</h3>
           <p>Secure deposits and full payments via Stripe Checkout. No-show protection built in.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">👥</div>
+          <div class="feature-icon">&#128101;</div>
           <h3>Staff Management</h3>
           <p>Rotas, timesheets, leave tracking, working hours, and performance all in one place.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
+          <div class="feature-icon">&#128200;</div>
           <h3>CRM &amp; Leads</h3>
           <p>Track every enquiry from first contact to paying customer. Full pipeline visibility.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📋</div>
+          <div class="feature-icon">&#128203;</div>
           <h3>Compliance</h3>
           <p>Document vault, PAT certificates, disclaimers, and audit trails. Stay inspection-ready.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🌐</div>
+          <div class="feature-icon">&#127760;</div>
           <h3>Beautiful Website</h3>
           <p>A bespoke, mobile-first website that represents your brand. Not a template &mdash; built for you.</p>
         </div>
@@ -788,17 +1073,17 @@
   <!-- CTA -->
   <section id="pricing" class="cta">
     <div class="cta-inner">
-      <h2>Ready to transform<br>your business?</h2>
+      <h2>See it working<br>in 30 seconds</h2>
       <p>
-        Try our live demos, explore the admin panel, and see exactly what you'll get.
-        No sales calls. No commitment. Just click and explore.
+        Log into our live admin panel and explore the bookings, staff, CRM, compliance &mdash;
+        everything a real business owner sees. No signup. No sales call.
       </p>
       <div class="cta-buttons">
-        <a href="#demos" class="btn-primary">Explore Demos</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
+        <a href="https://salon-x2.vercel.app/admin" target="_blank" rel="noopener" class="btn-primary">Try the Admin Panel</a>
+        <a href="#beta" class="btn-outline">Join the Beta</a>
       </div>
       <p class="cta-note">
-        Demo login: <strong>owner</strong> / <strong>admin123</strong> &mdash; no signup required
+        Login: <strong>owner</strong> / <strong>admin123</strong> &mdash; no signup required
       </p>
     </div>
   </section>
@@ -808,6 +1093,7 @@
     <div class="footer-inner">
       <div class="footer-logo">NBNE</div>
       <div class="footer-links">
+        <a href="https://salon-x2.vercel.app/admin" target="_blank" rel="noopener">Try Admin Panel</a>
         <a href="https://salon-x2.vercel.app" target="_blank" rel="noopener">Salon Demo</a>
         <a href="https://nbne-business-health-club-x.vercel.app" target="_blank" rel="noopener">Gym Demo</a>
         <a href="https://tavola-gray.vercel.app" target="_blank" rel="noopener">Restaurant Demo</a>
