@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBNE Platform — Every Module, Explained</title>
+  <meta name="description" content="See exactly what's inside the NBNE platform. Bookings, staff management, timesheets, CRM, compliance, document vault, and team chat — all under one roof.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #0f0f0f; background: #fff; -webkit-font-smoothing: antialiased;
+    }
+
+    :root {
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+      --dark: #0f0f0f;
+      --muted: #6b6b6b;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --surface: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      padding: 0.75rem 2rem;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.3rem;
+      color: var(--dark); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      letter-spacing: 0.02em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-links .btn-nav {
+      background: var(--accent); color: #fff !important; padding: 0.5rem 1.25rem;
+      border-radius: 6px; font-weight: 600;
+    }
+    .nav-links .btn-nav:hover { background: var(--accent-dark); }
+    .mobile-btn {
+      display: none; background: none; border: none; cursor: pointer;
+      padding: 8px; color: var(--dark); font-size: 1.5rem;
+    }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: rgba(255,255,255,0.98);
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--dark); text-decoration: none; font-size: 1.25rem;
+      font-weight: 600; letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .mobile-btn { display: block !important; }
+    }
+
+    /* ── Hero ── */
+    .page-hero {
+      padding: 5rem 2rem 4rem; text-align: center;
+      background: linear-gradient(180deg, var(--surface) 0%, #fff 100%);
+    }
+    .page-hero-badge {
+      display: inline-block; background: var(--accent);
+      color: #fff; padding: 0.35rem 1rem; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .page-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 600; color: var(--dark); line-height: 1.1;
+      margin-bottom: 1.25rem; letter-spacing: -0.02em;
+    }
+    .page-hero h1 em { font-style: italic; font-weight: 400; }
+    .page-hero p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--muted); max-width: 640px; margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── Module Sections ── */
+    .module-section {
+      padding: 5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .module-section:nth-child(even) {
+      background: var(--surface);
+    }
+    .module-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+    }
+    .module-section:nth-child(odd) .module-inner {
+      direction: rtl;
+    }
+    .module-section:nth-child(odd) .module-inner > * {
+      direction: ltr;
+    }
+    .module-content { flex: 1; min-width: 0; }
+    .module-icon {
+      font-size: 2.5rem; margin-bottom: 1rem;
+    }
+    .module-label {
+      font-size: 0.7rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem;
+    }
+    .module-content h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 600; color: var(--dark); margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .module-content p {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .module-features {
+      list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .module-features li {
+      font-size: 0.88rem; color: #334155; font-weight: 500;
+      padding-left: 1.5rem; position: relative;
+    }
+    .module-features li::before {
+      content: '✓'; position: absolute; left: 0; color: #22c55e; font-weight: 700;
+    }
+    .module-screenshot {
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      background: var(--surface);
+    }
+    .module-screenshot img {
+      width: 100%; height: auto; display: block;
+    }
+    .module-screenshot .placeholder {
+      aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 0.85rem; font-weight: 500;
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    }
+
+    @media (max-width: 768px) {
+      .module-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .module-section:nth-child(odd) .module-inner {
+        direction: ltr;
+      }
+      .module-section { padding: 3rem 1.5rem; }
+    }
+
+    /* ── CTA ── */
+    .cta {
+      padding: 5rem 2rem; text-align: center;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1e293b 100%);
+    }
+    .cta-inner { max-width: 640px; margin: 0 auto; }
+    .cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 600; color: #fff; margin-bottom: 1.25rem; line-height: 1.15;
+    }
+    .cta p { font-size: 1.05rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; line-height: 1.6; }
+    .cta-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: #fff; color: var(--dark); padding: 0.9rem 2.25rem;
+      text-decoration: none; font-weight: 700; font-size: 0.9rem;
+      border-radius: 6px; transition: transform 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-accent {
+      background: var(--accent); color: #fff; padding: 0.9rem 2.25rem;
+      text-decoration: none; font-weight: 700; font-size: 0.9rem;
+      border-radius: 6px; transition: transform 0.2s; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+    }
+    .btn-accent:hover { transform: translateY(-1px); background: var(--accent-dark); }
+    .btn-outline {
+      background: transparent; color: #fff; padding: 0.9rem 2.25rem;
+      text-decoration: none; font-weight: 500; font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.35); border-radius: 6px;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
+    .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem; }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 3rem 2rem; background: #0a0a0a; text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-inner { max-width: 800px; margin: 0 auto; }
+    .footer-logo { font-weight: 800; font-size: 1.2rem; color: #fff; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; font-size: 0.8rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">NBNE</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#demos">Demos</a>
+      <a href="/platform.html">Platform</a>
+      <a href="https://salon-x2.vercel.app/login?redirect=/admin" class="btn-nav">Try Admin Panel</a>
+    </div>
+    <button class="mobile-btn" id="mobileBtn" aria-label="Menu">&#9776;</button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="/#demos" onclick="closeMobile()">Demos</a>
+    <a href="/platform.html" onclick="closeMobile()">Platform</a>
+    <a href="https://salon-x2.vercel.app/login?redirect=/admin" onclick="closeMobile()">Try Admin Panel</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-badge">The Platform</div>
+    <h1>One system.<br><em>Everything you need.</em></h1>
+    <p>
+      Your website is just the front door. Behind it sits a complete business management platform.
+      Here's what every module does &mdash; and why it matters.
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODULE 1: BOOKINGS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="module-section">
+    <div class="module-inner">
+      <div class="module-content">
+        <div class="module-icon">📅</div>
+        <div class="module-label">Bookings &amp; Payments</div>
+        <h2>Online Booking That Actually Works</h2>
+        <p>
+          Customers pick a service, choose their preferred staff member, select a time slot,
+          and pay a deposit &mdash; all without picking up the phone. You see it in real time
+          on your calendar. Double-booking is impossible.
+        </p>
+        <p>
+          Stripe handles the money. Deposits reduce no-shows. Customers get instant email confirmations.
+          You get a clean calendar view of your day, your week, or your month.
+        </p>
+        <ul class="module-features">
+          <li>Real-time availability &mdash; no double bookings</li>
+          <li>Stripe deposits and full payments</li>
+          <li>Staff assignment per booking</li>
+          <li>Day / week / month calendar views</li>
+          <li>Client history attached to every booking</li>
+          <li>Automatic email confirmations</li>
+        </ul>
+      </div>
+      <div class="module-screenshot">
+        <!-- Replace src with actual screenshot -->
+        <img src="https://placehold.co/800x500/f1f5f9/94a3b8?text=Bookings+Calendar" alt="Bookings calendar showing appointments and staff schedule">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODULE 2: STAFF MANAGEMENT -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="module-section">
+    <div class="module-inner">
+      <div class="module-content">
+        <div class="module-icon">👥</div>
+        <div class="module-label">Staff Management</div>
+        <h2>Your Team, Sorted</h2>
+        <p>
+          Every staff member gets a profile with their role, working hours, leave balance,
+          and training records. Managers can see who's in, who's off, and who's overdue on training
+          &mdash; all in one place.
+        </p>
+        <p>
+          Set weekly working hours per person. Track absences and approve leave requests.
+          No more spreadsheets, WhatsApp groups, or sticky notes on the fridge.
+        </p>
+        <ul class="module-features">
+          <li>Staff profiles with roles and permissions</li>
+          <li>Weekly working hours configuration</li>
+          <li>Leave requests and approvals</li>
+          <li>Training records and expiry tracking</li>
+          <li>Shift patterns and rotas</li>
+          <li>Owner / Manager / Staff role hierarchy</li>
+        </ul>
+      </div>
+      <div class="module-screenshot">
+        <img src="https://placehold.co/800x500/f1f5f9/94a3b8?text=Staff+Management" alt="Staff management dashboard showing team profiles and working hours">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODULE 3: TIMESHEETS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="module-section">
+    <div class="module-inner">
+      <div class="module-content">
+        <div class="module-icon">⏱️</div>
+        <div class="module-label">Timesheets</div>
+        <h2>Know Exactly Who Worked What</h2>
+        <p>
+          Staff clock in via the app. Managers approve timesheets weekly. The system
+          calculates hours automatically, factoring in breaks and overtime. No more
+          guessing, no more arguments about hours.
+        </p>
+        <p>
+          Timesheets link directly to staff profiles and project codes, giving you
+          clear visibility on labour costs per project, per person, or per week.
+        </p>
+        <ul class="module-features">
+          <li>Digital clock-in / clock-out</li>
+          <li>Automatic hours calculation</li>
+          <li>Manager approval workflow</li>
+          <li>Project code allocation</li>
+          <li>Overtime and break tracking</li>
+          <li>Weekly and monthly summaries</li>
+        </ul>
+      </div>
+      <div class="module-screenshot">
+        <img src="https://placehold.co/800x500/f1f5f9/94a3b8?text=Timesheets" alt="Timesheet view showing staff hours and approval status">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODULE 4: CRM -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="module-section">
+    <div class="module-inner">
+      <div class="module-content">
+        <div class="module-icon">📊</div>
+        <div class="module-label">CRM &amp; Lead Tracking</div>
+        <h2>Never Lose a Lead Again</h2>
+        <p>
+          Every enquiry &mdash; whether it comes from your website, Instagram, a phone call,
+          or a referral &mdash; gets tracked from first contact to paying customer.
+          See your full pipeline at a glance and know exactly who needs following up.
+        </p>
+        <p>
+          Add notes, set follow-up dates, and track the estimated value of each lead.
+          When a lead converts, their history is right there for the whole team to see.
+        </p>
+        <ul class="module-features">
+          <li>Lead pipeline with drag-and-drop status</li>
+          <li>Source tracking (website, social, referral, manual)</li>
+          <li>Follow-up date reminders</li>
+          <li>Notes and activity history per lead</li>
+          <li>Estimated deal value tracking</li>
+          <li>Marketing consent management</li>
+        </ul>
+      </div>
+      <div class="module-screenshot">
+        <img src="https://placehold.co/800x500/f1f5f9/94a3b8?text=CRM+Pipeline" alt="CRM pipeline view showing leads at different stages">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODULE 5: COMPLIANCE (HSE) -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="module-section">
+    <div class="module-inner">
+      <div class="module-content">
+        <div class="module-icon">🛡️</div>
+        <div class="module-label">Compliance &amp; Health &amp; Safety</div>
+        <h2>Stay Inspection-Ready, Every Day</h2>
+        <p>
+          Track every compliance requirement your business has &mdash; from fire risk
+          assessments to PAT testing, food hygiene certificates to employer's liability insurance.
+          The system tells you what's due, what's overdue, and what's missing.
+        </p>
+        <p>
+          When the inspector walks in, you're not scrambling through filing cabinets.
+          Everything is digital, dated, and audit-trailed. Built for UK regulations.
+        </p>
+        <ul class="module-features">
+          <li>Compliance register with status tracking</li>
+          <li>Expiry date alerts and reminders</li>
+          <li>Incident reporting with RIDDOR guidance</li>
+          <li>Risk assessment records</li>
+          <li>UK regulatory references built in</li>
+          <li>KPI dashboard for compliance health</li>
+        </ul>
+      </div>
+      <div class="module-screenshot">
+        <img src="https://placehold.co/800x500/f1f5f9/94a3b8?text=Compliance+Dashboard" alt="Compliance dashboard showing item status and expiry alerts">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODULE 6: DOCUMENT VAULT -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="module-section">
+    <div class="module-inner">
+      <div class="module-content">
+        <div class="module-icon">📁</div>
+        <div class="module-label">Document Vault</div>
+        <h2>All Your Important Documents, One Place</h2>
+        <p>
+          Upload, categorise, and track every document your business needs &mdash; insurance
+          certificates, policies, contracts, training certs, COSHH data sheets.
+          The system knows what's expired and what's expiring soon.
+        </p>
+        <p>
+          We even pre-load the list of documents UK businesses are legally required to hold,
+          so you know exactly what you're missing. Access levels mean staff only see what
+          they're supposed to.
+        </p>
+        <ul class="module-features">
+          <li>Categorised document storage</li>
+          <li>Expiry tracking with reminders</li>
+          <li>UK legal document checklist pre-loaded</li>
+          <li>Access levels: Owner / Manager / Staff</li>
+          <li>Tag-based organisation</li>
+          <li>One-click download</li>
+        </ul>
+      </div>
+      <div class="module-screenshot">
+        <img src="https://placehold.co/800x500/f1f5f9/94a3b8?text=Document+Vault" alt="Document vault showing categorised documents with expiry status">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MODULE 7: TEAM CHAT -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="module-section">
+    <div class="module-inner">
+      <div class="module-content">
+        <div class="module-icon">💬</div>
+        <div class="module-label">Team Chat</div>
+        <h2>Ditch the WhatsApp Group</h2>
+        <p>
+          A proper team messaging system built into the platform. Create channels
+          for different topics &mdash; #general, #bookings, #urgent &mdash; and keep
+          work chat separate from personal phones.
+        </p>
+        <p>
+          Messages are tied to the business, not personal numbers. When someone leaves,
+          the history stays. When someone new joins, they can see the context. Simple,
+          clean, and always available.
+        </p>
+        <ul class="module-features">
+          <li>Channel-based team messaging</li>
+          <li>Real-time messages</li>
+          <li>Separate from personal phones</li>
+          <li>Message history preserved</li>
+          <li>Works on mobile and desktop</li>
+          <li>Integrated with the admin panel</li>
+        </ul>
+      </div>
+      <div class="module-screenshot">
+        <img src="https://placehold.co/800x500/f1f5f9/94a3b8?text=Team+Chat" alt="Team chat interface showing channels and messages">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <h2>See it all in action</h2>
+      <p>
+        Don't take our word for it. Log into the demo, click through every module,
+        and see how it all fits together. No signup required.
+      </p>
+      <div class="cta-buttons">
+        <a href="https://salon-x2.vercel.app/login?redirect=/admin" class="btn-accent">Try the Admin Panel &rarr;</a>
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="mailto:toby@nbnesigns.com" class="btn-outline">Get in Touch</a>
+      </div>
+      <p class="cta-note">
+        Demo login: <strong>owner</strong> / <strong>admin123</strong> &mdash; no signup required
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">NBNE</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/platform.html">Platform</a>
+        <a href="https://salon-x2.vercel.app" target="_blank" rel="noopener">Salon Demo</a>
+        <a href="https://nbne-business-health-club-x.vercel.app" target="_blank" rel="noopener">Gym Demo</a>
+        <a href="https://tavola-gray.vercel.app" target="_blank" rel="noopener">Restaurant Demo</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 NBNE. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      mobileBtn.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      mobileBtn.innerHTML = '&#9776;';
+    }
+  </script>
+
+</body>
+</html>
