@@ -144,6 +144,45 @@
       margin: 0 auto 0.5rem;
     }
 
+    /* ── Scrolling Feature Banner ── */
+    .feature-banner {
+      background: #0f172a; padding: 2.5rem 0; overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .banner-track {
+      display: flex; gap: 2rem; width: max-content;
+      animation: bannerScroll 40s linear infinite;
+    }
+    .banner-track:hover { animation-play-state: paused; }
+    @keyframes bannerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .banner-item {
+      flex: 0 0 auto; display: flex; align-items: center; gap: 1rem;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px; padding: 1rem 1.5rem; min-width: 260px;
+      transition: background 0.2s;
+    }
+    .banner-item:hover {
+      background: rgba(255,255,255,0.08);
+    }
+    .banner-icon {
+      flex-shrink: 0; width: 52px; height: 52px;
+    }
+    .banner-icon svg {
+      width: 52px; height: 52px;
+    }
+    .banner-label h4 {
+      font-size: 0.88rem; font-weight: 700; color: #e2e8f0;
+      margin-bottom: 0.15rem;
+    }
+    .banner-label p {
+      font-size: 0.75rem; color: rgba(255,255,255,0.4);
+      line-height: 1.4;
+    }
+
     /* ── Social Proof ── */
     .social-proof {
       padding: 3rem 2rem; background: #fafafa; text-align: center;
@@ -486,6 +525,299 @@
     <div class="scroll-indicator">
       <div class="line"></div>
       Explore
+    </div>
+  </section>
+
+  <!-- Scrolling Feature Banner -->
+  <section class="feature-banner">
+    <div class="banner-track">
+
+      <!-- Set 1 -->
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="44" height="32" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <line x1="4" y1="16" x2="48" y2="16" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="10" cy="12" r="1.5" fill="#ef4444"/><circle cx="15" cy="12" r="1.5" fill="#eab308"/><circle cx="20" cy="12" r="1.5" fill="#22c55e"/>
+            <rect x="10" y="21" width="14" height="3" rx="1" fill="#60a5fa" opacity="0.5"/>
+            <rect x="10" y="27" width="20" height="2" rx="1" fill="#60a5fa" opacity="0.3"/>
+            <rect x="10" y="32" width="16" height="2" rx="1" fill="#60a5fa" opacity="0.2"/>
+            <rect x="32" y="20" width="12" height="16" rx="2" fill="#60a5fa" opacity="0.15" stroke="#60a5fa" stroke-width="1"/>
+            <path d="M36 28l2 -3 2 2 3 -4" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Beautiful Website</h4>
+          <p>Bespoke, mobile-first &amp; built for you</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="40" height="36" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <line x1="6" y1="18" x2="46" y2="18" stroke="#60a5fa" stroke-width="2"/>
+            <line x1="18" y1="8" x2="18" y2="18" stroke="#60a5fa" stroke-width="2"/>
+            <line x1="34" y1="8" x2="34" y2="18" stroke="#60a5fa" stroke-width="2"/>
+            <rect x="11" y="23" width="8" height="6" rx="1" fill="#22c55e" opacity="0.3"/>
+            <rect x="22" y="23" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.3"/>
+            <rect x="33" y="23" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
+            <rect x="11" y="33" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
+            <rect x="22" y="33" width="8" height="6" rx="1" fill="#eab308" opacity="0.3"/>
+            <rect x="33" y="33" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Online Booking</h4>
+          <p>24/7 availability &amp; instant confirmation</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="18" r="7" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <path d="M8 42c0-6.627 5.373-12 12-12h0c6.627 0 12 5.373 12 12" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="36" cy="20" r="5" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5"/>
+            <path d="M28 42c0-4.418 3.582-8 8-8h0c4.418 0 8 3.582 8 8" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Staff &amp; Rotas</h4>
+          <p>Rotas, timesheets, leave &amp; working hours</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="10" width="40" height="32" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <path d="M14 34V26" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+            <path d="M22 34V22" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+            <path d="M30 34V18" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
+            <path d="M38 34V14" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>CRM &amp; Leads</h4>
+          <p>Pipeline from first contact to paying customer</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="6" width="36" height="24" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <path d="M8 12h36" stroke="#60a5fa" stroke-width="1.5"/>
+            <path d="M20 18h12" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <path d="M22 23h8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+            <rect x="14" y="34" width="24" height="14" rx="3" stroke="#22c55e" stroke-width="2" fill="none"/>
+            <path d="M20 41h12" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="26" cy="37" r="1.5" fill="#22c55e"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Stripe Payments</h4>
+          <p>Deposits, checkout &amp; no-show protection</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 12h32v30H10z" stroke="#60a5fa" stroke-width="2" fill="none" rx="2"/>
+            <path d="M10 12l16 10 16-10" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <rect x="16" y="6" width="20" height="6" rx="2" fill="#60a5fa" opacity="0.2"/>
+            <path d="M20 28h12" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <path d="M20 33h8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+            <circle cx="40" cy="36" r="8" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+            <path d="M36 36l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Compliance</h4>
+          <p>PAT certs, disclaimers &amp; audit trails</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="12" width="28" height="20" rx="10" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <circle cx="14" cy="22" r="1.5" fill="#60a5fa"/>
+            <circle cx="20" cy="22" r="1.5" fill="#60a5fa"/>
+            <circle cx="26" cy="22" r="1.5" fill="#60a5fa"/>
+            <rect x="18" y="20" width="28" height="20" rx="10" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.4"/>
+            <path d="M28 30h10" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Team Comms</h4>
+          <p>Internal messaging &amp; shift handovers</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="4" width="28" height="36" rx="3" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <path d="M18 4v-0h16v6H18z" fill="#60a5fa" opacity="0.2"/>
+            <line x1="18" y1="16" x2="34" y2="16" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
+            <line x1="18" y1="22" x2="30" y2="22" stroke="#60a5fa" stroke-width="1.5" opacity="0.3"/>
+            <line x1="18" y1="28" x2="32" y2="28" stroke="#60a5fa" stroke-width="1.5" opacity="0.2"/>
+            <circle cx="38" cy="38" r="10" fill="#0f172a" stroke="#60a5fa" stroke-width="2"/>
+            <path d="M35 38h6M38 35v6" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Documents</h4>
+          <p>Upload, store &amp; track expiry dates</p>
+        </div>
+      </div>
+
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="44" height="32" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <line x1="4" y1="16" x2="48" y2="16" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="10" cy="12" r="1.5" fill="#ef4444"/><circle cx="15" cy="12" r="1.5" fill="#eab308"/><circle cx="20" cy="12" r="1.5" fill="#22c55e"/>
+            <rect x="10" y="21" width="14" height="3" rx="1" fill="#60a5fa" opacity="0.5"/>
+            <rect x="10" y="27" width="20" height="2" rx="1" fill="#60a5fa" opacity="0.3"/>
+            <rect x="10" y="32" width="16" height="2" rx="1" fill="#60a5fa" opacity="0.2"/>
+            <rect x="32" y="20" width="12" height="16" rx="2" fill="#60a5fa" opacity="0.15" stroke="#60a5fa" stroke-width="1"/>
+            <path d="M36 28l2 -3 2 2 3 -4" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Beautiful Website</h4>
+          <p>Bespoke, mobile-first &amp; built for you</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="40" height="36" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <line x1="6" y1="18" x2="46" y2="18" stroke="#60a5fa" stroke-width="2"/>
+            <line x1="18" y1="8" x2="18" y2="18" stroke="#60a5fa" stroke-width="2"/>
+            <line x1="34" y1="8" x2="34" y2="18" stroke="#60a5fa" stroke-width="2"/>
+            <rect x="11" y="23" width="8" height="6" rx="1" fill="#22c55e" opacity="0.3"/>
+            <rect x="22" y="23" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.3"/>
+            <rect x="33" y="23" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
+            <rect x="11" y="33" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
+            <rect x="22" y="33" width="8" height="6" rx="1" fill="#eab308" opacity="0.3"/>
+            <rect x="33" y="33" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Online Booking</h4>
+          <p>24/7 availability &amp; instant confirmation</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="18" r="7" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <path d="M8 42c0-6.627 5.373-12 12-12h0c6.627 0 12 5.373 12 12" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="36" cy="20" r="5" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5"/>
+            <path d="M28 42c0-4.418 3.582-8 8-8h0c4.418 0 8 3.582 8 8" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Staff &amp; Rotas</h4>
+          <p>Rotas, timesheets, leave &amp; working hours</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="10" width="40" height="32" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <path d="M14 34V26" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+            <path d="M22 34V22" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+            <path d="M30 34V18" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
+            <path d="M38 34V14" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>CRM &amp; Leads</h4>
+          <p>Pipeline from first contact to paying customer</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="6" width="36" height="24" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <path d="M8 12h36" stroke="#60a5fa" stroke-width="1.5"/>
+            <path d="M20 18h12" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <path d="M22 23h8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+            <rect x="14" y="34" width="24" height="14" rx="3" stroke="#22c55e" stroke-width="2" fill="none"/>
+            <path d="M20 41h12" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="26" cy="37" r="1.5" fill="#22c55e"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Stripe Payments</h4>
+          <p>Deposits, checkout &amp; no-show protection</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 12h32v30H10z" stroke="#60a5fa" stroke-width="2" fill="none" rx="2"/>
+            <path d="M10 12l16 10 16-10" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <rect x="16" y="6" width="20" height="6" rx="2" fill="#60a5fa" opacity="0.2"/>
+            <path d="M20 28h12" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <path d="M20 33h8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+            <circle cx="40" cy="36" r="8" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+            <path d="M36 36l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Compliance</h4>
+          <p>PAT certs, disclaimers &amp; audit trails</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="12" width="28" height="20" rx="10" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <circle cx="14" cy="22" r="1.5" fill="#60a5fa"/>
+            <circle cx="20" cy="22" r="1.5" fill="#60a5fa"/>
+            <circle cx="26" cy="22" r="1.5" fill="#60a5fa"/>
+            <rect x="18" y="20" width="28" height="20" rx="10" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.4"/>
+            <path d="M28 30h10" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Team Comms</h4>
+          <p>Internal messaging &amp; shift handovers</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="4" width="28" height="36" rx="3" stroke="#60a5fa" stroke-width="2" fill="none"/>
+            <path d="M18 4v-0h16v6H18z" fill="#60a5fa" opacity="0.2"/>
+            <line x1="18" y1="16" x2="34" y2="16" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
+            <line x1="18" y1="22" x2="30" y2="22" stroke="#60a5fa" stroke-width="1.5" opacity="0.3"/>
+            <line x1="18" y1="28" x2="32" y2="28" stroke="#60a5fa" stroke-width="1.5" opacity="0.2"/>
+            <circle cx="38" cy="38" r="10" fill="#0f172a" stroke="#60a5fa" stroke-width="2"/>
+            <path d="M35 38h6M38 35v6" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="banner-label">
+          <h4>Documents</h4>
+          <p>Upload, store &amp; track expiry dates</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
