@@ -270,6 +270,84 @@
       font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem;
     }
 
+    /* ── Contact ── */
+    .contact {
+      padding: 5rem 2rem;
+      background: var(--surface);
+    }
+    .contact-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    }
+    .contact-info h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 600; color: var(--dark); margin-bottom: 1.25rem; line-height: 1.15;
+    }
+    .contact-info p {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;
+    }
+    .contact-details {
+      list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;
+    }
+    .contact-details li {
+      font-size: 0.9rem; color: #334155; display: flex; gap: 0.75rem; align-items: flex-start;
+    }
+    .contact-details li .icon {
+      font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem;
+    }
+    .contact-details li a {
+      color: #2563eb; text-decoration: none; font-weight: 500;
+    }
+    .contact-details li a:hover { text-decoration: underline; }
+    .contact-map {
+      margin-top: 1.5rem;
+    }
+    .contact-map a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #2563eb; color: #fff; padding: 0.65rem 1.5rem;
+      border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .contact-map a:hover { background: #1d4ed8; }
+    .contact-form-wrap h3 {
+      font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 1.25rem;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-form label {
+      font-size: 0.8rem; font-weight: 600; color: #334155;
+      display: flex; flex-direction: column; gap: 0.35rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.7rem 0.9rem; border: 1px solid #e2e8f0; border-radius: 6px;
+      font-size: 0.9rem; font-family: inherit; background: #fff;
+      transition: border-color 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button {
+      background: var(--dark); color: #fff; padding: 0.85rem 2rem;
+      border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 700;
+      font-family: inherit; cursor: pointer; transition: background 0.2s;
+    }
+    .contact-form button:hover { background: #1e293b; }
+    .contact-form button:disabled {
+      background: #94a3b8; cursor: not-allowed;
+    }
+    .form-status {
+      font-size: 0.85rem; padding: 0.65rem 1rem; border-radius: 6px;
+      display: none;
+    }
+    .form-status.success { display: block; background: #dcfce7; color: #166534; }
+    .form-status.error { display: block; background: #fee2e2; color: #991b1b; }
+    @media (max-width: 768px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
     /* ── Footer ── */
     .footer {
       padding: 3rem 2rem; background: #0a0a0a; text-align: center;
@@ -298,6 +376,7 @@
       <a href="#demos">Demos</a>
       <a href="#platform">Platform</a>
       <a href="/platform.html">See All Modules</a>
+      <a href="#contact">Contact</a>
       <a href="#pricing">Pricing</a>
     </div>
     <button class="mobile-btn" id="mobileBtn" aria-label="Menu">&#9776;</button>
@@ -308,6 +387,7 @@
     <a href="#demos" onclick="closeMobile()">Demos</a>
     <a href="#platform" onclick="closeMobile()">Platform</a>
     <a href="/platform.html" onclick="closeMobile()">See All Modules</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
     <a href="#pricing" onclick="closeMobile()">Pricing</a>
   </div>
 
@@ -502,6 +582,65 @@
     </div>
   </section>
 
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <h2>Get in touch</h2>
+        <p>
+          Whether you've got a question, want a demo walkthrough, or you're ready to get started
+          &mdash; we'd love to hear from you. No pressure, no pushy sales. Just a conversation.
+        </p>
+        <ul class="contact-details">
+          <li>
+            <span class="icon">📍</span>
+            <span>NBNE Business<br>7 Oak Drive, Lionheart Enterprise Park<br>Alnwick, Northumberland<br>NE66 2EU, UK</span>
+          </li>
+          <li>
+            <span class="icon">📞</span>
+            <span><a href="tel:01665606741">01665 606741</a> (office)</span>
+          </li>
+          <li>
+            <span class="icon">📱</span>
+            <span><a href="tel:07747484353">07747 484353</a> (mobile)</span>
+          </li>
+          <li>
+            <span class="icon">✉️</span>
+            <span><a href="mailto:toby@nbnesigns.com">toby@nbnesigns.com</a></span>
+          </li>
+        </ul>
+        <div class="contact-map">
+          <a href="https://www.google.com/maps/search/?api=1&query=NBNE+Business+7+Oak+Drive+Lionheart+Enterprise+Park+Alnwick+NE66+2EU" target="_blank" rel="noopener">
+            🗺️ View on Google Maps
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3>Send us a message</h3>
+        <div id="formStatus" class="form-status"></div>
+        <form class="contact-form" id="contactForm">
+          <label>
+            Your name *
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label>
+            Email address *
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label>
+            Phone number
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+          <label>
+            Message *
+            <textarea name="message" required placeholder="Tell us about your business and what you're looking for..."></textarea>
+          </label>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section id="pricing" class="cta">
     <div class="cta-inner">
@@ -512,7 +651,7 @@
       </p>
       <div class="cta-buttons">
         <a href="#demos" class="btn-primary">Explore Demos</a>
-        <a href="mailto:toby@nbnesigns.com" class="btn-outline">Get in Touch</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
       </div>
       <p class="cta-note">
         Demo login: <strong>owner</strong> / <strong>admin123</strong> &mdash; no signup required
@@ -528,7 +667,7 @@
         <a href="https://salon-x2.vercel.app" target="_blank" rel="noopener">Salon Demo</a>
         <a href="https://nbne-business-health-club-x.vercel.app" target="_blank" rel="noopener">Gym Demo</a>
         <a href="https://tavola-gray.vercel.app" target="_blank" rel="noopener">Restaurant Demo</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
       </div>
       <div class="footer-copy">&copy; 2026 NBNE. All rights reserved.</div>
     </div>
@@ -552,6 +691,47 @@
       mobileMenu.classList.remove('open');
       mobileBtn.innerHTML = '&#9776;';
     }
+
+    // Contact form submission
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
+
+      const data = {
+        name: contactForm.name.value.trim(),
+        email: contactForm.email.value.trim(),
+        phone: contactForm.phone.value.trim(),
+        message: contactForm.message.value.trim(),
+      };
+
+      try {
+        const res = await fetch('https://nbneplatform-production.up.railway.app/api/contact/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (res.ok) {
+          formStatus.className = 'form-status success';
+          formStatus.textContent = 'Message sent! We\'ll be in touch shortly.';
+          contactForm.reset();
+        } else {
+          formStatus.className = 'form-status error';
+          formStatus.textContent = json.error || 'Something went wrong. Please try again.';
+        }
+      } catch (err) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Network error. Please call us instead on 01665 606741.';
+      }
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    });
   </script>
 
 </body>
