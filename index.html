@@ -250,6 +250,72 @@
     .testimonial-card .author { font-size: 0.9rem; font-weight: 700; color: var(--dark); }
     .testimonial-card .role { font-size: 0.8rem; color: var(--muted); }
 
+    /* ── Beta Programme ── */
+    .beta { padding: 6rem 2rem; background: #f8fafc; }
+    .beta-inner { max-width: 640px; margin: 0 auto; }
+    .beta-badge {
+      display: inline-block; background: #dcfce7; color: #166534;
+      padding: 0.35rem 1rem; border-radius: 20px; margin-bottom: 1rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .beta-form {
+      background: #fff; border-radius: 12px; padding: 2rem;
+      border: 1px solid #e2e8f0; box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+    .beta-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .beta-field { margin-top: 1rem; }
+    .beta-field:first-child { margin-top: 0; }
+    .beta-row .beta-field { margin-top: 0; }
+    .beta-field label {
+      display: block; font-size: 0.82rem; font-weight: 600;
+      color: #374151; margin-bottom: 0.35rem;
+    }
+    .beta-field input,
+    .beta-field select,
+    .beta-field textarea {
+      width: 100%; padding: 0.65rem 0.75rem;
+      border: 1px solid #d1d5db; border-radius: 6px;
+      font-size: 0.9rem; font-family: inherit; background: #fff;
+      transition: border-color 0.2s; outline: none;
+    }
+    .beta-field input:focus,
+    .beta-field select:focus,
+    .beta-field textarea:focus {
+      border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+    .beta-field textarea { resize: vertical; min-height: 80px; }
+    .beta-submit {
+      margin-top: 1.5rem; width: 100%; padding: 0.85rem;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 700;
+      font-family: inherit; cursor: pointer; transition: background 0.2s;
+    }
+    .beta-submit:hover { background: var(--accent-dark); }
+    .beta-submit:disabled { background: #93c5fd; cursor: not-allowed; }
+    .beta-note {
+      text-align: center; font-size: 0.78rem; color: #9ca3af; margin-top: 0.75rem;
+    }
+    .beta-success {
+      background: #dcfce7; border: 1px solid #86efac; border-radius: 10px;
+      padding: 2rem; text-align: center; display: none;
+    }
+    .beta-success.show { display: block; }
+    .beta-success .tick { font-size: 2rem; margin-bottom: 0.75rem; }
+    .beta-success h3 { font-size: 1.15rem; font-weight: 700; color: #166534; margin-bottom: 0.5rem; }
+    .beta-success p { font-size: 0.95rem; color: #15803d; }
+    .beta-error {
+      margin-top: 0.75rem; padding: 0.6rem 0.75rem;
+      background: #fef2f2; border: 1px solid #fecaca;
+      border-radius: 6px; font-size: 0.85rem; color: #b91c1c;
+      display: none;
+    }
+    .beta-error.show { display: block; }
+    @media (max-width: 600px) {
+      .beta-row { grid-template-columns: 1fr; }
+    }
+
     /* ── CTA ── */
     .cta {
       padding: 6rem 2rem; text-align: center;
@@ -377,6 +443,7 @@
       <a href="#platform">Platform</a>
       <a href="/platform.html">See All Modules</a>
       <a href="#contact">Contact</a>
+      <a href="#beta">Beta</a>
       <a href="#pricing">Pricing</a>
     </div>
     <button class="mobile-btn" id="mobileBtn" aria-label="Menu">&#9776;</button>
@@ -388,6 +455,7 @@
     <a href="#platform" onclick="closeMobile()">Platform</a>
     <a href="/platform.html" onclick="closeMobile()">See All Modules</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#beta" onclick="closeMobile()">Beta</a>
     <a href="#pricing" onclick="closeMobile()">Pricing</a>
   </div>
 
@@ -582,6 +650,74 @@
     </div>
   </section>
 
+  <!-- Beta Programme -->
+  <section id="beta" class="beta">
+    <div class="beta-inner">
+      <div style="text-align:center; margin-bottom:3rem;">
+        <div class="beta-badge">Limited Places</div>
+        <h2 class="section-title">Join the Beta Programme</h2>
+        <p style="font-size:1rem; color:var(--muted); line-height:1.7; max-width:520px; margin:0 auto;">
+          We&rsquo;re looking for 3&ndash;5 UK businesses to use the full platform free for 3 months
+          in exchange for honest feedback. No commitment, no card required.
+        </p>
+      </div>
+
+      <div id="betaSuccess" class="beta-success">
+        <div class="tick">&#10003;</div>
+        <h3>You&rsquo;re on the list!</h3>
+        <p id="betaSuccessMsg">We'll be in touch within 48 hours.</p>
+      </div>
+
+      <form id="betaForm" class="beta-form">
+        <div class="beta-row">
+          <div class="beta-field">
+            <label>Business Name *</label>
+            <input type="text" name="business_name" required placeholder="e.g. The Hair Lounge">
+          </div>
+          <div class="beta-field">
+            <label>Your Name *</label>
+            <input type="text" name="contact_name" required placeholder="e.g. Sarah Thompson">
+          </div>
+        </div>
+
+        <div class="beta-row" style="margin-top:1rem;">
+          <div class="beta-field">
+            <label>Email *</label>
+            <input type="email" name="email" required placeholder="sarah@thehairlounge.co.uk">
+          </div>
+          <div class="beta-field">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="07700 123456">
+          </div>
+        </div>
+
+        <div class="beta-field">
+          <label>Business Type</label>
+          <select name="business_type">
+            <option value="">Select your industry...</option>
+            <option value="salon">Hair / Beauty Salon</option>
+            <option value="barber">Barber Shop</option>
+            <option value="restaurant">Restaurant / Caf&eacute;</option>
+            <option value="gym">Gym / Fitness Studio</option>
+            <option value="spa">Spa / Wellness</option>
+            <option value="clinic">Clinic / Healthcare</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="beta-field">
+          <label>Anything else?</label>
+          <textarea name="message" rows="3" placeholder="Tell us about your business, how many staff, what you're currently using..."></textarea>
+        </div>
+
+        <div id="betaError" class="beta-error"></div>
+
+        <button type="submit" class="beta-submit">Apply for Free Beta Access</button>
+        <p class="beta-note">No credit card. No commitment. We&rsquo;ll be in touch within 48 hours.</p>
+      </form>
+    </div>
+  </section>
+
   <!-- Contact -->
   <section id="contact" class="contact">
     <div class="contact-inner">
@@ -691,6 +827,51 @@
       mobileMenu.classList.remove('open');
       mobileBtn.innerHTML = '&#9776;';
     }
+
+    // Beta signup form
+    const betaForm = document.getElementById('betaForm');
+    const betaError = document.getElementById('betaError');
+    const betaSuccess = document.getElementById('betaSuccess');
+    const betaSuccessMsg = document.getElementById('betaSuccessMsg');
+    betaForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = betaForm.querySelector('button');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      betaError.className = 'beta-error';
+      betaError.textContent = '';
+
+      const data = {
+        business_name: betaForm.business_name.value.trim(),
+        contact_name: betaForm.contact_name.value.trim(),
+        email: betaForm.email.value.trim(),
+        phone: betaForm.phone.value.trim(),
+        business_type: betaForm.business_type.value,
+        message: betaForm.message.value.trim(),
+      };
+
+      try {
+        const res = await fetch('https://nbneplatform-production.up.railway.app/api/beta-signup/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (res.ok) {
+          betaSuccessMsg.textContent = json.message || "We'll be in touch within 48 hours.";
+          betaSuccess.classList.add('show');
+          betaForm.style.display = 'none';
+        } else {
+          betaError.className = 'beta-error show';
+          betaError.textContent = json.error || 'Something went wrong. Please try again.';
+        }
+      } catch (err) {
+        betaError.className = 'beta-error show';
+        betaError.textContent = 'Network error. Please email us at toby@nbnesigns.com.';
+      }
+      btn.disabled = false;
+      btn.textContent = 'Apply for Free Beta Access';
+    });
 
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
