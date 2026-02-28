@@ -11,8 +11,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NBNE — Beautiful websites that actually run your business</title>
-  <meta name="description" content="One flat price. No per-seat charges. Booking, payments, compliance, CRM — all included. Built in the UK for UK businesses.">
+  <title>Floe — Complete Business Management for Small Service Businesses | NBNE</title>
+  <meta name="description" content="Booking, payments, staff, compliance, CRM, team comms, documents and a beautiful website — all in one platform. Free 3-month beta. Then £30/month for life. UK-built for small service businesses.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -143,55 +143,103 @@
       margin: 0 auto 0.5rem;
     }
 
-    /* ── Scrolling Feature Banner ── */
-    .feature-banner {
-      background: #0f172a; padding: 2.5rem 0; overflow: hidden;
+    /* ── Trust Bar ── */
+    .trust-bar {
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.5);
+      letter-spacing: 0.02em;
+    }
+    .trust-bar span { white-space: nowrap; }
+
+    /* ── Module Grid (replaces scrolling banner) ── */
+    .module-grid-section {
+      background: #0f172a; padding: 5rem 2rem;
       border-top: 1px solid rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
     }
-    .banner-track {
-      display: flex; gap: 2rem; width: max-content;
-      animation: bannerScroll 40s linear infinite;
+    .module-grid-inner { max-width: 1100px; margin: 0 auto; }
+    .module-grid-section .section-title { color: #fff; }
+    .module-grid-section .section-sub { color: rgba(255,255,255,0.55); }
+    .module-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem; margin-top: 3rem;
     }
-    .banner-track:hover { animation-play-state: paused; }
-    @keyframes bannerScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .module-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 1.5rem; transition: background 0.2s;
     }
-    .banner-item {
-      flex: 0 0 auto; display: flex; align-items: center; gap: 1rem;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px; padding: 1rem 1.5rem; min-width: 260px;
-      transition: background 0.2s;
+    .module-card:hover { background: rgba(255,255,255,0.07); }
+    .module-card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .module-card h4 {
+      font-size: 0.95rem; font-weight: 700; color: #e2e8f0;
+      margin-bottom: 0.4rem;
     }
-    .banner-item:hover {
-      background: rgba(255,255,255,0.08);
+    .module-card p {
+      font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.55;
     }
-    .banner-icon {
-      flex-shrink: 0; width: 52px; height: 52px;
+    .module-grid-note {
+      text-align: center; margin-top: 2rem;
+      font-size: 1rem; font-weight: 600; color: #e2e8f0;
     }
-    .banner-icon svg {
-      width: 52px; height: 52px;
+    @media (max-width: 900px) { .module-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .module-grid { grid-template-columns: 1fr; } }
+
+    /* ── Explainer Section ── */
+    .explainer { padding: 6rem 2rem; background: #fff; }
+    .explainer-inner { max-width: 900px; margin: 0 auto; }
+    .explainer-body {
+      font-size: 1.05rem; color: #4a4a4a; line-height: 1.75;
+      margin-top: 2rem; max-width: 700px;
     }
-    .banner-label h4 {
-      font-size: 0.88rem; font-weight: 700; color: #e2e8f0;
-      margin-bottom: 0.15rem;
+    .explainer-body p { margin-bottom: 1.25rem; }
+    .compare-table {
+      margin-top: 3rem; width: 100%; border-collapse: collapse;
     }
-    .banner-label p {
-      font-size: 0.75rem; color: rgba(255,255,255,0.4);
-      line-height: 1.4;
+    .compare-table td {
+      padding: 0.7rem 1rem; font-size: 0.9rem; border-bottom: 1px solid #f0f0f0;
+    }
+    .compare-table .col-without {
+      color: var(--muted); background: #fafafa; width: 45%;
+    }
+    .compare-table .col-arrow {
+      text-align: center; width: 10%; color: var(--accent); font-weight: 700;
+    }
+    .compare-table .col-with {
+      color: var(--dark); font-weight: 600; background: #eff6ff; width: 45%;
+    }
+    .compare-table tr:last-child .col-without,
+    .compare-table tr:last-child .col-with {
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .compare-table td { padding: 0.5rem 0.6rem; font-size: 0.82rem; }
     }
 
-    /* ── Social Proof ── */
-    .social-proof {
-      padding: 3rem 2rem; background: #fafafa; text-align: center;
+    /* ── Beta Statement (replaces testimonials) ── */
+    .beta-statement {
+      padding: 4rem 2rem; background: #fafafa; text-align: center;
       border-bottom: 1px solid #f0f0f0;
     }
-    .social-proof p {
-      max-width: 800px; margin: 0 auto;
-      font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+    .beta-statement-inner { max-width: 640px; margin: 0 auto; }
+    .beta-statement h3 {
+      font-size: 1.15rem; font-weight: 700; color: var(--dark);
+      margin-bottom: 0.75rem;
     }
-    .social-proof strong { color: var(--dark); }
+    .beta-statement p {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.7;
+    }
+
+    /* ── Beta Bullets ── */
+    .beta-bullets {
+      list-style: none; padding: 0; margin: 1.5rem 0 2rem;
+      text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .beta-bullets li {
+      font-size: 0.95rem; color: #334155; padding: 0.4rem 0;
+      display: flex; align-items: flex-start; gap: 0.6rem;
+    }
+    .beta-bullets li .check {
+      color: #16a34a; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem;
+    }
 
     /* ── Demo Cards ── */
     .demos { padding: 6rem 2rem; background: #fff; }
@@ -509,16 +557,24 @@
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">UK-Built &middot; No Hidden Fees &middot; Unlimited Staff</div>
-      <h1>Beautiful websites that<br><em>actually run your business</em></h1>
+      <h1>Your entire business.<br><em>One login. One price.</em></h1>
       <p class="hero-sub">
-        One flat price. No per-seat charges. Add as many staff as you want.
-        Booking, payments, compliance, CRM &mdash; all included. We even handle the stuff
-        you keep meaning to sort out, like PAT certs and document audits.
+        Floe gives small service businesses everything they need to operate &mdash; booking, payments, staff, compliance, CRM, team comms, documents, and a beautiful website &mdash; for one flat monthly fee. No per-seat charges. No bolt-ons. No faff.
       </p>
       <div class="hero-buttons">
-        <a href="#demos" class="btn-primary">View Live Demos</a>
-        <a href="#pricing" class="btn-outline">See Pricing</a>
+        <a href="#demos" class="btn-primary">Explore Live Demos &rarr;</a>
+        <a href="#beta" class="btn-outline">Join the Free Beta</a>
+      </div>
+      <div class="trust-bar">
+        <span>UK-built</span>
+        <span>&middot;</span>
+        <span>No hidden fees</span>
+        <span>&middot;</span>
+        <span>Unlimited staff</span>
+        <span>&middot;</span>
+        <span>Cancel anytime</span>
+        <span>&middot;</span>
+        <span>Free for 3 months (beta)</span>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -527,306 +583,110 @@
     </div>
   </section>
 
-  <!-- Scrolling Feature Banner -->
-  <section class="feature-banner">
-    <div class="banner-track">
-
-      <!-- Set 1 -->
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="8" width="44" height="32" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <line x1="4" y1="16" x2="48" y2="16" stroke="#60a5fa" stroke-width="2"/>
-            <circle cx="10" cy="12" r="1.5" fill="#ef4444"/><circle cx="15" cy="12" r="1.5" fill="#eab308"/><circle cx="20" cy="12" r="1.5" fill="#22c55e"/>
-            <rect x="10" y="21" width="14" height="3" rx="1" fill="#60a5fa" opacity="0.5"/>
-            <rect x="10" y="27" width="20" height="2" rx="1" fill="#60a5fa" opacity="0.3"/>
-            <rect x="10" y="32" width="16" height="2" rx="1" fill="#60a5fa" opacity="0.2"/>
-            <rect x="32" y="20" width="12" height="16" rx="2" fill="#60a5fa" opacity="0.15" stroke="#60a5fa" stroke-width="1"/>
-            <path d="M36 28l2 -3 2 2 3 -4" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Beautiful Website</h4>
-          <p>Bespoke, mobile-first &amp; built for you</p>
-        </div>
+  <!-- Everything Included — Module Grid -->
+  <section class="module-grid-section">
+    <div class="module-grid-inner">
+      <div style="text-align:center;">
+        <div class="section-label" style="color:rgba(255,255,255,0.4);">What&rsquo;s Included</div>
+        <h2 class="section-title">Everything included. Nothing extra.</h2>
+        <p class="section-sub">
+          Every Floe subscription includes all of this. Not as add-ons. Not at the next tier up. All of it, from day one.
+        </p>
       </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="8" width="40" height="36" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <line x1="6" y1="18" x2="46" y2="18" stroke="#60a5fa" stroke-width="2"/>
-            <line x1="18" y1="8" x2="18" y2="18" stroke="#60a5fa" stroke-width="2"/>
-            <line x1="34" y1="8" x2="34" y2="18" stroke="#60a5fa" stroke-width="2"/>
-            <rect x="11" y="23" width="8" height="6" rx="1" fill="#22c55e" opacity="0.3"/>
-            <rect x="22" y="23" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.3"/>
-            <rect x="33" y="23" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
-            <rect x="11" y="33" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
-            <rect x="22" y="33" width="8" height="6" rx="1" fill="#eab308" opacity="0.3"/>
-            <rect x="33" y="33" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
-          </svg>
-        </div>
-        <div class="banner-label">
+      <div class="module-grid">
+        <div class="module-card">
+          <div class="module-card-icon">&#128197;</div>
           <h4>Online Booking</h4>
-          <p>24/7 availability &amp; instant confirmation</p>
+          <p>Customers book 24/7. Real availability, instant confirmation, staff assignment.</p>
         </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="18" r="7" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <path d="M8 42c0-6.627 5.373-12 12-12h0c6.627 0 12 5.373 12 12" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <circle cx="36" cy="20" r="5" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5"/>
-            <path d="M28 42c0-4.418 3.582-8 8-8h0c4.418 0 8 3.582 8 8" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Staff &amp; Rotas</h4>
-          <p>Rotas, timesheets, leave &amp; working hours</p>
-        </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="10" width="40" height="32" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <path d="M14 34V26" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
-            <path d="M22 34V22" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
-            <path d="M30 34V18" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
-            <path d="M38 34V14" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>CRM &amp; Leads</h4>
-          <p>Pipeline from first contact to paying customer</p>
-        </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="6" width="36" height="24" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <path d="M8 12h36" stroke="#60a5fa" stroke-width="1.5"/>
-            <path d="M20 18h12" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-            <path d="M22 23h8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-            <rect x="14" y="34" width="24" height="14" rx="3" stroke="#22c55e" stroke-width="2" fill="none"/>
-            <path d="M20 41h12" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="26" cy="37" r="1.5" fill="#22c55e"/>
-          </svg>
-        </div>
-        <div class="banner-label">
+        <div class="module-card">
+          <div class="module-card-icon">&#128179;</div>
           <h4>Stripe Payments</h4>
-          <p>Deposits, checkout &amp; no-show protection</p>
+          <p>Deposits and full payments via Stripe. No-show protection built in.</p>
         </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 12h32v30H10z" stroke="#60a5fa" stroke-width="2" fill="none" rx="2"/>
-            <path d="M10 12l16 10 16-10" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <rect x="16" y="6" width="20" height="6" rx="2" fill="#60a5fa" opacity="0.2"/>
-            <path d="M20 28h12" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-            <path d="M20 33h8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-            <circle cx="40" cy="36" r="8" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
-            <path d="M36 36l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Compliance</h4>
-          <p>PAT certs, disclaimers &amp; audit trails</p>
-        </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="12" width="28" height="20" rx="10" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <circle cx="14" cy="22" r="1.5" fill="#60a5fa"/>
-            <circle cx="20" cy="22" r="1.5" fill="#60a5fa"/>
-            <circle cx="26" cy="22" r="1.5" fill="#60a5fa"/>
-            <rect x="18" y="20" width="28" height="20" rx="10" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.4"/>
-            <path d="M28 30h10" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Team Comms</h4>
-          <p>Internal messaging &amp; shift handovers</p>
-        </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" y="4" width="28" height="36" rx="3" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <path d="M18 4v-0h16v6H18z" fill="#60a5fa" opacity="0.2"/>
-            <line x1="18" y1="16" x2="34" y2="16" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
-            <line x1="18" y1="22" x2="30" y2="22" stroke="#60a5fa" stroke-width="1.5" opacity="0.3"/>
-            <line x1="18" y1="28" x2="32" y2="28" stroke="#60a5fa" stroke-width="1.5" opacity="0.2"/>
-            <circle cx="38" cy="38" r="10" fill="#0f172a" stroke="#60a5fa" stroke-width="2"/>
-            <path d="M35 38h6M38 35v6" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Documents</h4>
-          <p>Upload, store &amp; track expiry dates</p>
-        </div>
-      </div>
-
-      <!-- Set 2 (duplicate for seamless loop) -->
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="8" width="44" height="32" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <line x1="4" y1="16" x2="48" y2="16" stroke="#60a5fa" stroke-width="2"/>
-            <circle cx="10" cy="12" r="1.5" fill="#ef4444"/><circle cx="15" cy="12" r="1.5" fill="#eab308"/><circle cx="20" cy="12" r="1.5" fill="#22c55e"/>
-            <rect x="10" y="21" width="14" height="3" rx="1" fill="#60a5fa" opacity="0.5"/>
-            <rect x="10" y="27" width="20" height="2" rx="1" fill="#60a5fa" opacity="0.3"/>
-            <rect x="10" y="32" width="16" height="2" rx="1" fill="#60a5fa" opacity="0.2"/>
-            <rect x="32" y="20" width="12" height="16" rx="2" fill="#60a5fa" opacity="0.15" stroke="#60a5fa" stroke-width="1"/>
-            <path d="M36 28l2 -3 2 2 3 -4" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Beautiful Website</h4>
-          <p>Bespoke, mobile-first &amp; built for you</p>
-        </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="8" width="40" height="36" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <line x1="6" y1="18" x2="46" y2="18" stroke="#60a5fa" stroke-width="2"/>
-            <line x1="18" y1="8" x2="18" y2="18" stroke="#60a5fa" stroke-width="2"/>
-            <line x1="34" y1="8" x2="34" y2="18" stroke="#60a5fa" stroke-width="2"/>
-            <rect x="11" y="23" width="8" height="6" rx="1" fill="#22c55e" opacity="0.3"/>
-            <rect x="22" y="23" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.3"/>
-            <rect x="33" y="23" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
-            <rect x="11" y="33" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
-            <rect x="22" y="33" width="8" height="6" rx="1" fill="#eab308" opacity="0.3"/>
-            <rect x="33" y="33" width="8" height="6" rx="1" fill="#60a5fa" opacity="0.15"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Online Booking</h4>
-          <p>24/7 availability &amp; instant confirmation</p>
-        </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="18" r="7" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <path d="M8 42c0-6.627 5.373-12 12-12h0c6.627 0 12 5.373 12 12" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <circle cx="36" cy="20" r="5" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5"/>
-            <path d="M28 42c0-4.418 3.582-8 8-8h0c4.418 0 8 3.582 8 8" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="banner-label">
+        <div class="module-card">
+          <div class="module-card-icon">&#128101;</div>
           <h4>Staff &amp; Rotas</h4>
-          <p>Rotas, timesheets, leave &amp; working hours</p>
+          <p>Rotas, timesheets, leave, working hours &mdash; all in one place.</p>
         </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="10" width="40" height="32" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <path d="M14 34V26" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
-            <path d="M22 34V22" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
-            <path d="M30 34V18" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
-            <path d="M38 34V14" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="banner-label">
+        <div class="module-card">
+          <div class="module-card-icon">&#128200;</div>
           <h4>CRM &amp; Leads</h4>
-          <p>Pipeline from first contact to paying customer</p>
+          <p>Every enquiry tracked from first contact to paying customer.</p>
         </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="6" width="36" height="24" rx="4" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <path d="M8 12h36" stroke="#60a5fa" stroke-width="1.5"/>
-            <path d="M20 18h12" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-            <path d="M22 23h8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-            <rect x="14" y="34" width="24" height="14" rx="3" stroke="#22c55e" stroke-width="2" fill="none"/>
-            <path d="M20 41h12" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="26" cy="37" r="1.5" fill="#22c55e"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Stripe Payments</h4>
-          <p>Deposits, checkout &amp; no-show protection</p>
-        </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 12h32v30H10z" stroke="#60a5fa" stroke-width="2" fill="none" rx="2"/>
-            <path d="M10 12l16 10 16-10" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <rect x="16" y="6" width="20" height="6" rx="2" fill="#60a5fa" opacity="0.2"/>
-            <path d="M20 28h12" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-            <path d="M20 33h8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-            <circle cx="40" cy="36" r="8" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
-            <path d="M36 36l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="banner-label">
+        <div class="module-card">
+          <div class="module-card-icon">&#9989;</div>
           <h4>Compliance</h4>
-          <p>PAT certs, disclaimers &amp; audit trails</p>
+          <p>PAT certs, health disclaimers, audit trails. Stay inspection-ready.</p>
         </div>
-      </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="12" width="28" height="20" rx="10" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <circle cx="14" cy="22" r="1.5" fill="#60a5fa"/>
-            <circle cx="20" cy="22" r="1.5" fill="#60a5fa"/>
-            <circle cx="26" cy="22" r="1.5" fill="#60a5fa"/>
-            <rect x="18" y="20" width="28" height="20" rx="10" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.4"/>
-            <path d="M28 30h10" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-          </svg>
-        </div>
-        <div class="banner-label">
+        <div class="module-card">
+          <div class="module-card-icon">&#128172;</div>
           <h4>Team Comms</h4>
-          <p>Internal messaging &amp; shift handovers</p>
+          <p>Internal messaging, shift handovers, file sharing. Ditch the WhatsApp group.</p>
+        </div>
+        <div class="module-card">
+          <div class="module-card-icon">&#128450;</div>
+          <h4>Document Vault</h4>
+          <p>Upload, store, and track expiry on every business document.</p>
+        </div>
+        <div class="module-card">
+          <div class="module-card-icon">&#128722;</div>
+          <h4>Online Shop</h4>
+          <p>Sell products and services directly from your site. Stock tracking included.</p>
         </div>
       </div>
-
-      <div class="banner-item">
-        <div class="banner-icon">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" y="4" width="28" height="36" rx="3" stroke="#60a5fa" stroke-width="2" fill="none"/>
-            <path d="M18 4v-0h16v6H18z" fill="#60a5fa" opacity="0.2"/>
-            <line x1="18" y1="16" x2="34" y2="16" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
-            <line x1="18" y1="22" x2="30" y2="22" stroke="#60a5fa" stroke-width="1.5" opacity="0.3"/>
-            <line x1="18" y1="28" x2="32" y2="28" stroke="#60a5fa" stroke-width="1.5" opacity="0.2"/>
-            <circle cx="38" cy="38" r="10" fill="#0f172a" stroke="#60a5fa" stroke-width="2"/>
-            <path d="M35 38h6M38 35v6" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="banner-label">
-          <h4>Documents</h4>
-          <p>Upload, store &amp; track expiry dates</p>
-        </div>
-      </div>
-
+      <p class="module-grid-note">Plus a bespoke, mobile-first website built for your brand. Not a template.</p>
     </div>
   </section>
 
-  <!-- Social Proof -->
-  <section class="social-proof">
-    <p>
-      <strong>Built in the UK for UK businesses.</strong>
-      We're not a Silicon Valley startup. We're a small, straight-talking team that builds
-      the whole system &mdash; website, booking, payments, staff, compliance, CRM &mdash; and actually picks up the phone.
-    </p>
+  <!-- Explainer: One platform. Zero duct tape. -->
+  <section class="explainer">
+    <div class="explainer-inner">
+      <div class="section-label">Why Floe</div>
+      <h2 class="section-title">One platform. Zero duct tape.</h2>
+      <div class="explainer-body">
+        <p>Most small businesses run on a patchwork of tools &mdash; a booking app here, a WhatsApp group there, spreadsheets for rotas, a folder full of certificates nobody can find.</p>
+        <p>Floe replaces all of it. One login for you and your staff. One place where bookings, payments, team communications, compliance, and client records all live together and talk to each other.</p>
+        <p>It&rsquo;s not just software. We set it up for you, configure it to your workflow, and we&rsquo;re available when something needs changing. UK-based, real people, actual phone number.</p>
+      </div>
+      <table class="compare-table">
+        <tr>
+          <td class="col-without">Booking app (&pound;X/mo)</td>
+          <td class="col-arrow">&rarr;</td>
+          <td class="col-with">Booking included</td>
+        </tr>
+        <tr>
+          <td class="col-without">Separate payment tool</td>
+          <td class="col-arrow">&rarr;</td>
+          <td class="col-with">Stripe built in</td>
+        </tr>
+        <tr>
+          <td class="col-without">WhatsApp staff group</td>
+          <td class="col-arrow">&rarr;</td>
+          <td class="col-with">Team comms included</td>
+        </tr>
+        <tr>
+          <td class="col-without">Excel rota spreadsheet</td>
+          <td class="col-arrow">&rarr;</td>
+          <td class="col-with">Staff &amp; rotas included</td>
+        </tr>
+        <tr>
+          <td class="col-without">Paper compliance folder</td>
+          <td class="col-arrow">&rarr;</td>
+          <td class="col-with">Compliance vault included</td>
+        </tr>
+        <tr>
+          <td class="col-without">Chasing leads by email</td>
+          <td class="col-arrow">&rarr;</td>
+          <td class="col-with">CRM included</td>
+        </tr>
+        <tr>
+          <td class="col-without">All of the above separately</td>
+          <td class="col-arrow">&rarr;</td>
+          <td class="col-with">One flat monthly fee</td>
+        </tr>
+      </table>
+    </div>
   </section>
 
   <!-- Demo Sites -->
@@ -924,9 +784,9 @@
     <div class="platform-inner">
       <div style="text-align:center; margin-bottom:4rem;">
         <div class="section-label">The Platform</div>
-        <h2 class="section-title">Everything Under One Roof</h2>
+        <h2 class="section-title">What&rsquo;s Inside Floe</h2>
         <p class="section-sub">
-          Your website is just the front door. Behind it sits a complete business management platform.
+          Behind your website sits a complete operating system for your business. Here&rsquo;s everything that&rsquo;s included &mdash; for every client, at every price point.
         </p>
       </div>
 
@@ -965,31 +825,15 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <div class="testimonials-inner">
-      <div style="text-align:center; margin-bottom:3.5rem;">
-        <div class="section-label">Testimonials</div>
-        <h2 class="section-title">What Business Owners Say</h2>
-      </div>
-
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <blockquote>&ldquo;The booking system alone has saved me hours every week. Clients love being able to book online, and the deposit system means no more no-shows.&rdquo;</blockquote>
-          <div class="author">Sarah M.</div>
-          <div class="role">Salon Owner</div>
-        </div>
-        <div class="testimonial-card">
-          <blockquote>&ldquo;Having everything in one platform &mdash; bookings, staff, compliance &mdash; is a game changer. We ditched three separate tools.&rdquo;</blockquote>
-          <div class="author">James R.</div>
-          <div class="role">Gym Manager</div>
-        </div>
-        <div class="testimonial-card">
-          <blockquote>&ldquo;The website NBNE built us is gorgeous. We get compliments on it constantly, and the reservation system just works.&rdquo;</blockquote>
-          <div class="author">Maria L.</div>
-          <div class="role">Restaurant Owner</div>
-        </div>
-      </div>
+  <!-- Beta Statement (replaces testimonials) -->
+  <section class="beta-statement">
+    <div class="beta-statement-inner">
+      <h3>Currently in beta &mdash; used by real businesses in the UK.</h3>
+      <p>
+        We&rsquo;re running a small beta programme with 3&ndash;5 businesses before our full launch.
+        Beta users get 3 months free and a lifetime rate of &pound;30/month.
+        Places are limited and filling.
+      </p>
     </div>
   </section>
 
@@ -998,11 +842,15 @@
     <div class="beta-inner">
       <div style="text-align:center; margin-bottom:3rem;">
         <div class="beta-badge">Limited Places</div>
-        <h2 class="section-title">Join the Beta Programme</h2>
-        <p style="font-size:1rem; color:var(--muted); line-height:1.7; max-width:520px; margin:0 auto;">
-          We&rsquo;re looking for 3&ndash;5 UK businesses to use the full platform free for 3 months
-          in exchange for honest feedback. No commitment, no card required.
+        <h2 class="section-title">Get 3 months free. Then &pound;30/month for life.</h2>
+        <p style="font-size:1rem; color:var(--muted); line-height:1.7; max-width:560px; margin:0 auto;">
+          We&rsquo;re looking for a small number of UK businesses to use the full Floe platform free for 3 months &mdash; in exchange for honest feedback. No credit card. No commitment. If you love it, you stay on at &pound;30/month for life (our beta rate, locked in permanently). If it&rsquo;s not for you, walk away &mdash; no hard feelings.
         </p>
+        <ul class="beta-bullets">
+          <li><span class="check">&#10003;</span> Full access to every module from day one</li>
+          <li><span class="check">&#10003;</span> We set it up for you &mdash; your branding, your services, your domain</li>
+          <li><span class="check">&#10003;</span> Direct line to the people who built it</li>
+        </ul>
       </div>
 
       <div id="betaSuccess" class="beta-success">
@@ -1040,17 +888,30 @@
             <option value="">Select your industry...</option>
             <option value="salon">Hair / Beauty Salon</option>
             <option value="barber">Barber Shop</option>
-            <option value="restaurant">Restaurant / Caf&eacute;</option>
+            <option value="nail">Nail Salon / Nail Technician</option>
+            <option value="restaurant">Restaurant / Caf&eacute; / Bistro</option>
             <option value="gym">Gym / Fitness Studio</option>
-            <option value="spa">Spa / Wellness</option>
+            <option value="yoga">Yoga / Pilates Studio</option>
+            <option value="pt">Personal Trainer</option>
+            <option value="spa">Spa / Wellness Centre</option>
             <option value="clinic">Clinic / Healthcare</option>
-            <option value="other">Other</option>
+            <option value="therapist">Therapist / Counsellor</option>
+            <option value="mindfulness">Mindfulness / Meditation</option>
+            <option value="aesthetics">Beauty Therapist / Aesthetics</option>
+            <option value="pet">Dog Grooming / Pet Services</option>
+            <option value="cleaning">Cleaning / Domestic Services</option>
+            <option value="coaching">Personal Training / Coaching</option>
+            <option value="training">Training / Education / Courses</option>
+            <option value="tattoo">Tattoo / Piercing Studio</option>
+            <option value="physio">Physiotherapy / Sports Therapy</option>
+            <option value="osteo">Osteopath / Chiropractor</option>
+            <option value="other">Other (tell us below)</option>
           </select>
         </div>
 
         <div class="beta-field">
-          <label>Anything else?</label>
-          <textarea name="message" rows="3" placeholder="Tell us about your business, how many staff, what you're currently using..."></textarea>
+          <label>Tell us about your business &mdash; the more detail the better</label>
+          <textarea name="message" rows="3" placeholder="What does your business do, how many staff, what tools are you currently using..."></textarea>
         </div>
 
         <div id="betaError" class="beta-error"></div>
