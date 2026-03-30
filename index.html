@@ -11,8 +11,17 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Floe — Complete Business Management for Small Service Businesses | NBNE</title>
-  <meta name="description" content="Booking, payments, staff, compliance, CRM, team comms, documents and a beautiful website — all in one platform. Free 3-month beta. Then £30/month for life. UK-built for small service businesses.">
+  <title>Phloe — One platform for your entire business | phloe.co.uk</title>
+  <meta name="description" content="Booking, payments, staff, compliance, CRM, comms, documents and a beautiful website — one platform, one price. Built in the UK for small service businesses.">
+  <meta property="og:title" content="Phloe — One platform for your entire business">
+  <meta property="og:description" content="Booking, payments, staff, compliance, CRM, comms, documents and a beautiful website — one platform, one price. Built in the UK for small service businesses.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://phloe.co.uk">
+  <meta property="og:image" content="https://phloe.co.uk/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Phloe — One platform for your entire business">
+  <meta name="twitter:description" content="Booking, payments, staff, compliance, CRM, comms, documents and a beautiful website — one platform, one price.">
+  <link rel="canonical" href="https://phloe.co.uk">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,65 +30,76 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     img { display: block; max-width: 100%; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #0f0f0f;
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
+
+    :root {
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --bg: #0a0a0b;
+      --bg-raised: #111113;
+      --bg-card: #16161a;
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --text: #ededef;
+      --text-secondary: rgba(255,255,255,0.55);
+      --text-muted: rgba(255,255,255,0.35);
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108,92,231,0.15);
+      --green: #00b894;
+      --radius: 10px;
     }
 
-    /* ── Design Tokens ── */
-    :root {
-      --sans: 'Inter', -apple-system, sans-serif;
-      --dark: #0f0f0f;
-      --muted: #6b6b6b;
-      --accent: #2563eb;
-      --accent-dark: #1d4ed8;
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* ── Navigation ── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1.1rem 2rem;
+      padding: 1rem 2rem;
       display: flex; justify-content: space-between; align-items: center;
       transition: all 0.3s ease;
     }
     .nav.scrolled {
       padding: 0.65rem 2rem;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      background: rgba(10,10,11,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
     .nav-logo {
       font-weight: 800; font-size: 1.3rem;
-      color: #fff; text-decoration: none;
-      letter-spacing: -0.02em;
+      color: var(--text); text-decoration: none;
+      letter-spacing: -0.03em;
     }
-    .nav.scrolled .nav-logo { color: var(--dark); }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a {
-      color: rgba(255,255,255,0.85); text-decoration: none;
-      font-size: 0.88rem; font-weight: 500;
-      letter-spacing: 0.02em; transition: color 0.2s;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.2s;
     }
-    .nav.scrolled .nav-links a { color: var(--muted); }
-    .nav.scrolled .nav-links a:hover { color: var(--dark); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .btn-nav {
+      background: var(--accent); color: #fff !important;
+      padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .nav-links .btn-nav:hover { opacity: 0.9; }
     .mobile-btn {
       display: none; background: none; border: none; cursor: pointer;
-      padding: 8px; color: #fff; font-size: 1.5rem;
+      padding: 8px; color: var(--text); font-size: 1.5rem;
     }
-    .nav.scrolled .mobile-btn { color: var(--dark); }
     .mobile-menu {
       display: none; position: fixed; inset: 0; z-index: 99;
-      background: rgba(255,255,255,0.98);
+      background: rgba(10,10,11,0.98);
       flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
-      color: var(--dark); text-decoration: none; font-size: 1.25rem;
-      font-weight: 600; letter-spacing: 0.02em;
+      color: var(--text); text-decoration: none; font-size: 1.25rem;
+      font-weight: 600;
     }
-
     @media (max-width: 768px) {
       .nav-links { display: none !important; }
       .mobile-btn { display: block !important; }
@@ -87,198 +107,133 @@
 
     /* ── Hero ── */
     .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format');
-      background-size: cover; background-position: center;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 6rem 2rem 4rem;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(108,92,231,0.12) 0%, transparent 70%);
     }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.65) 100%);
-    }
-    .hero-content {
-      position: relative; text-align: center; padding: 2rem; max-width: 800px;
-    }
+    .hero-content { max-width: 800px; }
     .hero-badge {
-      display: inline-block; background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(8px); padding: 0.4rem 1.25rem;
-      border-radius: 20px; margin-bottom: 2rem;
-      font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.9);
-      letter-spacing: 0.05em; border: 1px solid rgba(255,255,255,0.15);
+      display: inline-block; padding: 0.35rem 1rem; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 2rem;
+      color: var(--accent); background: var(--accent-glow);
+      border: 1px solid rgba(108,92,231,0.2);
     }
     .hero h1 {
-      font-family: var(--sans);
       font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 600; color: #fff; line-height: 1.08;
-      margin-bottom: 1.5rem; letter-spacing: -0.02em;
+      font-weight: 700; line-height: 1.08;
+      margin-bottom: 1.5rem; letter-spacing: -0.03em;
+      color: var(--text);
     }
-    .hero h1 em { font-style: normal; font-weight: 300; }
+    .hero h1 .dim { color: var(--text-secondary); font-weight: 400; }
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(255,255,255,0.75); font-weight: 400;
-      margin-bottom: 2.5rem; line-height: 1.6;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-secondary); font-weight: 400;
+      margin-bottom: 2.5rem; line-height: 1.65;
       max-width: 600px; margin-left: auto; margin-right: auto;
     }
     .hero-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
-      background: #fff; color: var(--dark); padding: 0.9rem 2.25rem;
+      background: var(--accent); color: #fff; padding: 0.85rem 2rem;
       text-decoration: none; font-weight: 700; font-size: 0.9rem;
-      border-radius: 6px; transition: transform 0.2s; border: none; cursor: pointer;
+      border-radius: 6px; transition: opacity 0.2s; border: none; cursor: pointer;
     }
-    .btn-primary:hover { transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent; color: #fff; padding: 0.9rem 2.25rem;
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-ghost {
+      background: transparent; color: var(--text-secondary); padding: 0.85rem 2rem;
       text-decoration: none; font-weight: 500; font-size: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.35); border-radius: 6px;
-      transition: border-color 0.2s; cursor: pointer;
+      border: 1px solid var(--border-hover); border-radius: 6px;
+      transition: border-color 0.2s, color 0.2s; cursor: pointer;
     }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
-    .scroll-indicator {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      color: rgba(255,255,255,0.4); font-size: 0.7rem; text-align: center;
-      letter-spacing: 0.15em; text-transform: uppercase;
-    }
-    .scroll-indicator .line {
-      width: 1px; height: 36px; background: rgba(255,255,255,0.25);
-      margin: 0 auto 0.5rem;
-    }
-
-    /* ── Trust Bar ── */
+    .btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
     .trust-bar {
       display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.5);
+      margin-top: 3rem; font-size: 0.78rem; color: var(--text-muted);
       letter-spacing: 0.02em;
     }
-    .trust-bar span { white-space: nowrap; }
 
-    /* ── Module Grid (replaces scrolling banner) ── */
-    .module-grid-section {
-      background: #0f172a; padding: 5rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.04);
+    /* ── Section utilities ── */
+    .section { padding: 7rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem;
     }
-    .module-grid-inner { max-width: 1100px; margin: 0 auto; }
-    .module-grid-section .section-title { color: #fff; }
-    .module-grid-section .section-sub { color: rgba(255,255,255,0.55); }
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--text-secondary); max-width: 560px;
+      line-height: 1.65;
+    }
+    .text-center { text-align: center; }
+    .section-sub.center { margin-left: auto; margin-right: auto; }
+
+    /* ── Module Grid ── */
+    .modules { background: var(--bg); border-top: 1px solid var(--border); }
     .module-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem; margin-top: 3rem;
+      gap: 1px; margin-top: 4rem;
+      background: var(--border); border-radius: var(--radius); overflow: hidden;
     }
     .module-card {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px; padding: 1.5rem; transition: background 0.2s;
+      background: var(--bg-raised); padding: 2rem;
+      transition: background 0.2s;
     }
-    .module-card:hover { background: rgba(255,255,255,0.07); }
-    .module-card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .module-card:hover { background: var(--bg-card); }
+    .module-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; opacity: 0.85; }
     .module-card h4 {
-      font-size: 0.95rem; font-weight: 700; color: #e2e8f0;
-      margin-bottom: 0.4rem;
+      font-size: 0.9rem; font-weight: 700; color: var(--text);
+      margin-bottom: 0.35rem;
     }
     .module-card p {
-      font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.55;
-    }
-    .module-grid-note {
-      text-align: center; margin-top: 2rem;
-      font-size: 1rem; font-weight: 600; color: #e2e8f0;
+      font-size: 0.8rem; color: var(--text-muted); line-height: 1.55;
     }
     @media (max-width: 900px) { .module-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 500px) { .module-grid { grid-template-columns: 1fr; } }
 
-    /* ── Explainer Section ── */
-    .explainer { padding: 6rem 2rem; background: #fff; }
-    .explainer-inner { max-width: 900px; margin: 0 auto; }
+    /* ── Explainer ── */
+    .explainer { background: var(--bg-raised); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .explainer-body {
-      font-size: 1.05rem; color: #4a4a4a; line-height: 1.75;
+      font-size: 1.05rem; color: var(--text-secondary); line-height: 1.75;
       margin-top: 2rem; max-width: 700px;
     }
     .explainer-body p { margin-bottom: 1.25rem; }
-    .compare-table {
-      margin-top: 3rem; width: 100%; border-collapse: collapse;
-    }
+    .compare-table { margin-top: 3rem; width: 100%; border-collapse: collapse; }
     .compare-table td {
-      padding: 0.7rem 1rem; font-size: 0.9rem; border-bottom: 1px solid #f0f0f0;
+      padding: 0.75rem 1rem; font-size: 0.88rem;
+      border-bottom: 1px solid var(--border);
     }
-    .compare-table .col-without {
-      color: var(--muted); background: #fafafa; width: 45%;
-    }
-    .compare-table .col-arrow {
-      text-align: center; width: 10%; color: var(--accent); font-weight: 700;
-    }
-    .compare-table .col-with {
-      color: var(--dark); font-weight: 600; background: #eff6ff; width: 45%;
-    }
-    .compare-table tr:last-child .col-without,
-    .compare-table tr:last-child .col-with {
-      font-weight: 700;
-    }
+    .compare-table .col-without { color: var(--text-muted); width: 42%; }
+    .compare-table .col-arrow { text-align: center; width: 8%; color: var(--accent); font-weight: 700; font-size: 1rem; }
+    .compare-table .col-with { color: var(--text); font-weight: 600; width: 50%; }
     @media (max-width: 600px) {
       .compare-table td { padding: 0.5rem 0.6rem; font-size: 0.82rem; }
     }
 
-    /* ── Beta Statement (replaces testimonials) ── */
-    .beta-statement {
-      padding: 4rem 2rem; background: #fafafa; text-align: center;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .beta-statement-inner { max-width: 640px; margin: 0 auto; }
-    .beta-statement h3 {
-      font-size: 1.15rem; font-weight: 700; color: var(--dark);
-      margin-bottom: 0.75rem;
-    }
-    .beta-statement p {
-      font-size: 0.95rem; color: var(--muted); line-height: 1.7;
-    }
-
-    /* ── Beta Bullets ── */
-    .beta-bullets {
-      list-style: none; padding: 0; margin: 1.5rem 0 2rem;
-      text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;
-    }
-    .beta-bullets li {
-      font-size: 0.95rem; color: #334155; padding: 0.4rem 0;
-      display: flex; align-items: flex-start; gap: 0.6rem;
-    }
-    .beta-bullets li .check {
-      color: #16a34a; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem;
-    }
-
-    /* ── Demo Cards ── */
-    .demos { padding: 6rem 2rem; background: #fff; }
-    .demos-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.75rem; font-weight: 600; color: var(--accent);
-      text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-family: var(--sans);
-      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-      font-weight: 600; color: var(--dark); margin-bottom: 1rem;
-    }
-    .section-sub {
-      font-size: 1rem; color: var(--muted); max-width: 560px;
-      margin: 0 auto; line-height: 1.6;
-    }
+    /* ── Demo Sites ── */
+    .demos { background: var(--bg); }
     .demo-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem; margin-top: 4rem;
+      gap: 1.5rem; margin-top: 4rem;
     }
     .demo-card {
-      display: block; text-decoration: none; color: var(--dark);
-      border-radius: 12px; overflow: hidden; border: 1px solid #e8e8e8;
-      transition: transform 0.25s, box-shadow 0.25s;
+      display: block; text-decoration: none; color: var(--text);
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-raised);
+      transition: border-color 0.25s, transform 0.25s;
     }
     .demo-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
     }
     .demo-card-img {
       position: relative; aspect-ratio: 16/10; overflow: hidden;
     }
-    .demo-card-img img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .demo-card-img .overlay {
-      position: absolute; inset: 0;
-    }
+    .demo-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .demo-card-img .overlay { position: absolute; inset: 0; }
     .demo-card-img .label {
       position: absolute; bottom: 1rem; left: 1.25rem; color: #fff;
     }
@@ -286,311 +241,216 @@
       font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
       letter-spacing: 0.1em; opacity: 0.8; margin-bottom: 0.25rem;
     }
-    .demo-card-img .label .title {
-      font-family: var(--sans); font-size: 1.5rem; font-weight: 600;
-    }
-    .demo-card-img .badge {
-      position: absolute; top: 1rem; right: 1rem;
-      padding: 0.3rem 0.75rem; border-radius: 20px;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
-    }
-    .badge-live { background: rgba(255,255,255,0.95); }
+    .demo-card-img .label .title { font-size: 1.4rem; font-weight: 700; }
     .demo-card-body { padding: 1.5rem 1.25rem; }
     .demo-card-body p {
-      font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.25rem;
+      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;
     }
     .demo-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .demo-tag {
-      background: #f5f5f5; padding: 0.3rem 0.7rem; border-radius: 4px;
-      font-size: 0.75rem; font-weight: 600; color: #555;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      padding: 0.25rem 0.6rem; border-radius: 4px;
+      font-size: 0.72rem; font-weight: 600; color: var(--text-secondary);
     }
     .demo-link {
-      margin-top: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.85rem; font-weight: 600;
+      margin-top: 1rem; display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 600; color: var(--accent);
     }
 
-    /* ── Platform Features ── */
-    .platform { padding: 6rem 2rem; background: #fafafa; }
-    .platform-inner { max-width: 1100px; margin: 0 auto; }
-    .feature-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem; margin-top: 4rem;
+    /* ── Pricing ── */
+    .pricing { background: var(--bg-raised); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .pricing-card {
+      max-width: 480px; margin: 3rem auto 0;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 3rem; text-align: center;
     }
-    .feature-card {
-      background: #fff; border-radius: 10px; padding: 2rem;
-      border: 1px solid #eee; transition: box-shadow 0.2s;
+    .pricing-card .price {
+      font-size: 3.5rem; font-weight: 800; letter-spacing: -0.04em;
+      margin-bottom: 0.25rem;
     }
-    .feature-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    .feature-icon { font-size: 1.75rem; margin-bottom: 1rem; }
-    .feature-card h3 {
-      font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;
+    .pricing-card .price-period { font-size: 0.95rem; color: var(--text-secondary); }
+    .pricing-card .setup {
+      margin-top: 0.5rem; font-size: 0.88rem; color: var(--text-muted);
     }
-    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── Testimonials ── */
-    .testimonials { padding: 6rem 2rem; background: #fff; }
-    .testimonials-inner { max-width: 1000px; margin: 0 auto; }
-    .testimonial-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem; margin-top: 3.5rem;
+    .pricing-card .divider {
+      height: 1px; background: var(--border); margin: 2rem 0;
     }
-    .testimonial-card {
-      background: #fafafa; border-radius: 10px; padding: 2rem; border: 1px solid #eee;
+    .pricing-includes {
+      list-style: none; padding: 0; text-align: left;
     }
-    .testimonial-card blockquote {
-      font-size: 0.95rem; color: #4a4a4a; line-height: 1.7;
-      font-style: italic; margin-bottom: 1.5rem;
+    .pricing-includes li {
+      font-size: 0.9rem; color: var(--text-secondary); padding: 0.5rem 0;
+      display: flex; align-items: center; gap: 0.75rem;
     }
-    .testimonial-card .author { font-size: 0.9rem; font-weight: 700; color: var(--dark); }
-    .testimonial-card .role { font-size: 0.8rem; color: var(--muted); }
-
-    /* ── Beta Programme ── */
-    .beta { padding: 6rem 2rem; background: #f8fafc; }
-    .beta-inner { max-width: 640px; margin: 0 auto; }
-    .beta-badge {
-      display: inline-block; background: #dcfce7; color: #166534;
-      padding: 0.35rem 1rem; border-radius: 20px; margin-bottom: 1rem;
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-    }
-    .beta-form {
-      background: #fff; border-radius: 12px; padding: 2rem;
-      border: 1px solid #e2e8f0; box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-    }
-    .beta-row {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-    }
-    .beta-field { margin-top: 1rem; }
-    .beta-field:first-child { margin-top: 0; }
-    .beta-row .beta-field { margin-top: 0; }
-    .beta-field label {
-      display: block; font-size: 0.82rem; font-weight: 600;
-      color: #374151; margin-bottom: 0.35rem;
-    }
-    .beta-field input,
-    .beta-field select,
-    .beta-field textarea {
-      width: 100%; padding: 0.65rem 0.75rem;
-      border: 1px solid #d1d5db; border-radius: 6px;
-      font-size: 0.9rem; font-family: inherit; background: #fff;
-      transition: border-color 0.2s; outline: none;
-    }
-    .beta-field input:focus,
-    .beta-field select:focus,
-    .beta-field textarea:focus {
-      border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
-    }
-    .beta-field textarea { resize: vertical; min-height: 80px; }
-    .beta-submit {
-      margin-top: 1.5rem; width: 100%; padding: 0.85rem;
-      background: var(--accent); color: #fff;
-      border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 700;
-      font-family: inherit; cursor: pointer; transition: background 0.2s;
-    }
-    .beta-submit:hover { background: var(--accent-dark); }
-    .beta-submit:disabled { background: #93c5fd; cursor: not-allowed; }
-    .beta-note {
-      text-align: center; font-size: 0.78rem; color: #9ca3af; margin-top: 0.75rem;
-    }
-    .beta-success {
-      background: #dcfce7; border: 1px solid #86efac; border-radius: 10px;
-      padding: 2rem; text-align: center; display: none;
-    }
-    .beta-success.show { display: block; }
-    .beta-success .tick { font-size: 2rem; margin-bottom: 0.75rem; }
-    .beta-success h3 { font-size: 1.15rem; font-weight: 700; color: #166534; margin-bottom: 0.5rem; }
-    .beta-success p { font-size: 0.95rem; color: #15803d; }
-    .beta-error {
-      margin-top: 0.75rem; padding: 0.6rem 0.75rem;
-      background: #fef2f2; border: 1px solid #fecaca;
-      border-radius: 6px; font-size: 0.85rem; color: #b91c1c;
-      display: none;
-    }
-    .beta-error.show { display: block; }
-    @media (max-width: 600px) {
-      .beta-row { grid-template-columns: 1fr; }
+    .pricing-includes li .check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .pricing-card .btn-primary { margin-top: 2rem; display: inline-block; width: 100%; text-align: center; }
+    .pricing-note {
+      text-align: center; margin-top: 1.5rem;
+      font-size: 0.78rem; color: var(--text-muted); max-width: 480px; margin-left: auto; margin-right: auto;
     }
 
-    /* ── CTA ── */
-    .cta {
-      padding: 6rem 2rem; text-align: center;
-      background: linear-gradient(135deg, #0f0f0f 0%, #1e293b 100%);
+    /* ── How it works ── */
+    .how-it-works { background: var(--bg); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; margin-top: 4rem;
     }
-    .cta-inner { max-width: 640px; margin: 0 auto; }
-    .cta h2 {
-      font-family: var(--sans);
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
-      font-weight: 600; color: #fff; margin-bottom: 1.25rem; line-height: 1.15;
+    .step-card { text-align: center; }
+    .step-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 3rem; height: 3rem; border-radius: 50%;
+      background: var(--accent-glow); border: 1px solid rgba(108,92,231,0.25);
+      color: var(--accent); font-weight: 800; font-size: 1.1rem;
+      margin-bottom: 1.25rem;
     }
-    .cta p { font-size: 1.05rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; line-height: 1.6; }
-    .cta-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .cta .btn-primary { background: #fff; color: var(--dark); }
-    .cta .btn-outline { color: #fff; border-color: rgba(255,255,255,0.3); }
-    .cta .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
-    .cta-note {
-      font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem;
+    .step-card h3 {
+      font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;
     }
+    .step-card p {
+      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;
+    }
+    @media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr; } }
 
     /* ── Contact ── */
-    .contact {
-      padding: 5rem 2rem;
-      background: var(--surface);
-    }
-    .contact-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    }
-    .contact-info h2 {
-      font-family: var(--sans);
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      font-weight: 600; color: var(--dark); margin-bottom: 1.25rem; line-height: 1.15;
+    .contact { background: var(--bg-raised); border-top: 1px solid var(--border); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem;
     }
     .contact-info p {
-      font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;
+      font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;
     }
     .contact-details {
       list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;
     }
     .contact-details li {
-      font-size: 0.9rem; color: #334155; display: flex; gap: 0.75rem; align-items: flex-start;
+      font-size: 0.9rem; color: var(--text-secondary);
+      display: flex; gap: 0.75rem; align-items: flex-start;
     }
-    .contact-details li .icon {
-      font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem;
-    }
-    .contact-details li a {
-      color: #2563eb; text-decoration: none; font-weight: 500;
-    }
+    .contact-details li .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.15rem; }
+    .contact-details li a { color: var(--accent); text-decoration: none; font-weight: 500; }
     .contact-details li a:hover { text-decoration: underline; }
-    .contact-map {
-      margin-top: 1.5rem;
-    }
-    .contact-map a {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: #2563eb; color: #fff; padding: 0.65rem 1.5rem;
-      border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600;
-      transition: background 0.2s;
-    }
-    .contact-map a:hover { background: #1d4ed8; }
-    .contact-form-wrap h3 {
-      font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 1.25rem;
-    }
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .contact-form label {
-      font-size: 0.8rem; font-weight: 600; color: #334155;
+      font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);
       display: flex; flex-direction: column; gap: 0.35rem;
     }
     .contact-form input,
     .contact-form textarea {
-      padding: 0.7rem 0.9rem; border: 1px solid #e2e8f0; border-radius: 6px;
-      font-size: 0.9rem; font-family: inherit; background: #fff;
+      padding: 0.7rem 0.9rem; border: 1px solid var(--border); border-radius: 6px;
+      font-size: 0.9rem; font-family: var(--sans);
+      background: var(--bg); color: var(--text);
       transition: border-color 0.2s;
     }
     .contact-form input:focus,
     .contact-form textarea:focus {
-      outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
     }
     .contact-form textarea { resize: vertical; min-height: 120px; }
     .contact-form button {
-      background: var(--dark); color: #fff; padding: 0.85rem 2rem;
+      background: var(--accent); color: #fff; padding: 0.85rem 2rem;
       border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 700;
-      font-family: inherit; cursor: pointer; transition: background 0.2s;
+      font-family: var(--sans); cursor: pointer; transition: opacity 0.2s;
     }
-    .contact-form button:hover { background: #1e293b; }
-    .contact-form button:disabled {
-      background: #94a3b8; cursor: not-allowed;
-    }
+    .contact-form button:hover { opacity: 0.9; }
+    .contact-form button:disabled { opacity: 0.5; cursor: not-allowed; }
     .form-status {
-      font-size: 0.85rem; padding: 0.65rem 1rem; border-radius: 6px;
-      display: none;
+      font-size: 0.85rem; padding: 0.65rem 1rem; border-radius: 6px; display: none;
     }
-    .form-status.success { display: block; background: #dcfce7; color: #166534; }
-    .form-status.error { display: block; background: #fee2e2; color: #991b1b; }
+    .form-status.success { display: block; background: rgba(0,184,148,0.1); color: var(--green); border: 1px solid rgba(0,184,148,0.2); }
+    .form-status.error { display: block; background: rgba(255,71,87,0.1); color: #ff4757; border: 1px solid rgba(255,71,87,0.2); }
     @media (max-width: 768px) {
-      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
+
+    /* ── CTA ── */
+    .cta {
+      padding: 7rem 2rem; text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 110%, rgba(108,92,231,0.1) 0%, transparent 70%);
+    }
+    .cta-inner { max-width: 640px; margin: 0 auto; }
+    .cta h2 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700; margin-bottom: 1.25rem; line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .cta p { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.65; }
 
     /* ── Footer ── */
     .footer {
-      padding: 3rem 2rem; background: #0a0a0a; text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 3rem 2rem; text-align: center;
+      border-top: 1px solid var(--border);
     }
     .footer-inner { max-width: 800px; margin: 0 auto; }
     .footer-logo {
-      font-weight: 800; font-size: 1.2rem; color: #fff;
-      margin-bottom: 1rem; letter-spacing: -0.02em;
+      font-weight: 800; font-size: 1.2rem; color: var(--text);
+      margin-bottom: 1rem; letter-spacing: -0.03em;
     }
     .footer-links {
       display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
       font-size: 0.8rem; margin-bottom: 1.5rem;
     }
-    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
-    .footer-links a:hover { color: rgba(255,255,255,0.8); }
-    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+    .footer-links a { color: var(--text-muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--text-secondary); }
+    .footer-copy { font-size: 0.75rem; color: var(--text-muted); }
   </style>
 </head>
 <body>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
-    <a href="#" class="nav-logo">NBNE</a>
+    <a href="#" class="nav-logo">Phloe</a>
     <div class="nav-links">
+      <a href="#modules">Platform</a>
       <a href="#demos">Demos</a>
-      <a href="#platform">Platform</a>
-      <a href="/platform.html">See All Modules</a>
-      <a href="#contact">Contact</a>
-      <a href="#beta">Beta</a>
       <a href="#pricing">Pricing</a>
+      <a href="#how">How It Works</a>
+      <a href="#contact" class="btn-nav">Get Started</a>
     </div>
     <button class="mobile-btn" id="mobileBtn" aria-label="Menu">&#9776;</button>
   </nav>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
+    <a href="#modules" onclick="closeMobile()">Platform</a>
     <a href="#demos" onclick="closeMobile()">Demos</a>
-    <a href="#platform" onclick="closeMobile()">Platform</a>
-    <a href="/platform.html" onclick="closeMobile()">See All Modules</a>
-    <a href="#contact" onclick="closeMobile()">Contact</a>
-    <a href="#beta" onclick="closeMobile()">Beta</a>
     <a href="#pricing" onclick="closeMobile()">Pricing</a>
+    <a href="#how" onclick="closeMobile()">How It Works</a>
+    <a href="#contact" onclick="closeMobile()">Get Started</a>
   </div>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Your entire business.<br><em>One login. One price.</em></h1>
+      <div class="hero-badge">Built in the UK for small businesses</div>
+      <h1>Your entire business.<br><span class="dim">One platform. One price.</span></h1>
       <p class="hero-sub">
-        Floe gives small service businesses everything they need to operate &mdash; booking, payments, staff, compliance, CRM, team comms, documents, and a beautiful website &mdash; for one flat monthly fee. No per-seat charges. No bolt-ons. No faff.
+        Phloe gives small service businesses everything they need to operate &mdash; booking, payments, staff, compliance, CRM, comms, documents, and a beautiful website &mdash; for one flat monthly fee.
       </p>
       <div class="hero-buttons">
         <a href="#demos" class="btn-primary">Explore Live Demos &rarr;</a>
-        <a href="#beta" class="btn-outline">Join the Free Beta</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
       </div>
       <div class="trust-bar">
-        <span>UK-built</span>
+        <span>UK-built &amp; hosted</span>
         <span>&middot;</span>
-        <span>No hidden fees</span>
+        <span>No per-seat charges</span>
         <span>&middot;</span>
         <span>Unlimited staff</span>
         <span>&middot;</span>
         <span>Cancel anytime</span>
-        <span>&middot;</span>
-        <span>Free for 3 months (beta)</span>
       </div>
-    </div>
-    <div class="scroll-indicator">
-      <div class="line"></div>
-      Explore
     </div>
   </section>
 
-  <!-- Everything Included — Module Grid -->
-  <section class="module-grid-section">
-    <div class="module-grid-inner">
-      <div style="text-align:center;">
-        <div class="section-label" style="color:rgba(255,255,255,0.4);">What&rsquo;s Included</div>
-        <h2 class="section-title">Everything included. Nothing extra.</h2>
-        <p class="section-sub">
-          Every Floe subscription includes all of this. Not as add-ons. Not at the next tier up. All of it, from day one.
+  <!-- Everything Included -->
+  <section id="modules" class="section modules">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-label">What&rsquo;s Included</div>
+        <h2 class="section-title">Everything. Not as add-ons.</h2>
+        <p class="section-sub center">
+          Every Phloe subscription includes all of this. Not at the next tier up. Not behind a paywall. All of it, from day one.
         </p>
       </div>
       <div class="module-grid">
@@ -607,7 +467,7 @@
         <div class="module-card">
           <div class="module-card-icon">&#128101;</div>
           <h4>Staff &amp; Rotas</h4>
-          <p>Rotas, timesheets, leave, working hours &mdash; all in one place.</p>
+          <p>Rotas, timesheets, leave, working hours &mdash; one place, zero spreadsheets.</p>
         </div>
         <div class="module-card">
           <div class="module-card-icon">&#128200;</div>
@@ -635,19 +495,18 @@
           <p>Sell products and services directly from your site. Stock tracking included.</p>
         </div>
       </div>
-      <p class="module-grid-note">Plus a bespoke, mobile-first website built for your brand. Not a template.</p>
     </div>
   </section>
 
-  <!-- Explainer: One platform. Zero duct tape. -->
-  <section class="explainer">
-    <div class="explainer-inner">
-      <div class="section-label">Why Floe</div>
+  <!-- Explainer -->
+  <section class="section explainer">
+    <div class="section-inner">
+      <div class="section-label">Why Phloe</div>
       <h2 class="section-title">One platform. Zero duct tape.</h2>
       <div class="explainer-body">
         <p>Most small businesses run on a patchwork of tools &mdash; a booking app here, a WhatsApp group there, spreadsheets for rotas, a folder full of certificates nobody can find.</p>
-        <p>Floe replaces all of it. One login for you and your staff. One place where bookings, payments, team communications, compliance, and client records all live together and talk to each other.</p>
-        <p>It&rsquo;s not just software. We set it up for you, configure it to your workflow, and we&rsquo;re available when something needs changing. UK-based, real people, actual phone number.</p>
+        <p>Phloe replaces all of it. One login for you and your staff. One place where bookings, payments, comms, compliance, and client records all live together and talk to each other.</p>
+        <p>We set it up for you, configure it to your workflow, and we&rsquo;re on hand when something needs changing. UK-based, real people, actual phone number.</p>
       </div>
       <table class="compare-table">
         <tr>
@@ -681,338 +540,254 @@
           <td class="col-with">CRM included</td>
         </tr>
         <tr>
-          <td class="col-without">All of the above separately</td>
+          <td class="col-without">All of the above — separately</td>
           <td class="col-arrow">&rarr;</td>
-          <td class="col-with">One flat monthly fee</td>
+          <td class="col-with">One platform. One price.</td>
         </tr>
       </table>
     </div>
   </section>
 
   <!-- Demo Sites -->
-  <section id="demos" class="demos">
-    <div class="demos-inner">
-      <div style="text-align:center; margin-bottom:4rem;">
+  <section id="demos" class="section demos">
+    <div class="section-inner">
+      <div class="text-center" style="margin-bottom:4rem;">
         <div class="section-label">Live Demos</div>
         <h2 class="section-title">See What We Build</h2>
-        <p class="section-sub">
-          Explore our live demo websites. Each one is a fully functional example of what we deliver to clients &mdash; click through, book an appointment, try the admin panel.
+        <p class="section-sub center">
+          Each demo is a fully functional Phloe site. Click through, book an appointment, explore the admin panel. No signup required.
         </p>
       </div>
 
       <div class="demo-grid">
-
         <!-- Salon X -->
-        <a class="demo-card" href="https://salon-x2.vercel.app" target="_blank" rel="noopener">
+        <a class="demo-card" href="https://salon-x.nbne.uk" target="_blank" rel="noopener">
           <div class="demo-card-img">
             <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80&auto=format" alt="Salon X" loading="lazy">
-            <div class="overlay" style="background:linear-gradient(transparent 40%, #8B6F47cc 100%);"></div>
+            <div class="overlay" style="background:linear-gradient(transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
             <div class="label">
               <div class="subtitle">Hair &amp; Beauty</div>
               <div class="title">Salon X</div>
             </div>
-            <div class="badge badge-live" style="color:#8B6F47;">Live Demo</div>
           </div>
           <div class="demo-card-body">
-            <p>A stunning salon website with online booking, Stripe payments, staff profiles, and a full gallery. Everything a modern salon needs.</p>
+            <p>A modern salon with online booking, Stripe payments, staff profiles, and a full gallery.</p>
             <div class="demo-tags">
-              <span class="demo-tag">Online Booking</span>
-              <span class="demo-tag">Stripe Deposits</span>
-              <span class="demo-tag">Staff Profiles</span>
-              <span class="demo-tag">Service Menu</span>
+              <span class="demo-tag">Booking</span>
+              <span class="demo-tag">Payments</span>
+              <span class="demo-tag">Staff</span>
+              <span class="demo-tag">Gallery</span>
             </div>
-            <div class="demo-link" style="color:#8B6F47;">Explore Demo <span>&rarr;</span></div>
+            <div class="demo-link">Explore Demo <span>&rarr;</span></div>
           </div>
         </a>
 
         <!-- FitHub -->
-        <a class="demo-card" href="https://nbne-business-health-club-x.vercel.app" target="_blank" rel="noopener">
+        <a class="demo-card" href="https://fithub.nbne.uk" target="_blank" rel="noopener">
           <div class="demo-card-img">
             <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80&auto=format" alt="FitHub" loading="lazy">
-            <div class="overlay" style="background:linear-gradient(transparent 40%, #dc2626cc 100%);"></div>
+            <div class="overlay" style="background:linear-gradient(transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
             <div class="label">
               <div class="subtitle">Gym &amp; Fitness</div>
               <div class="title">FitHub</div>
             </div>
-            <div class="badge badge-live" style="color:#dc2626;">Live Demo</div>
           </div>
           <div class="demo-card-body">
-            <p>A high-energy gym website with class timetables, membership sign-ups, trainer bios, and integrated booking for PT sessions.</p>
+            <p>Class timetables, PT booking, membership sign-ups, and trainer profiles. Built for gyms.</p>
             <div class="demo-tags">
-              <span class="demo-tag">Class Timetable</span>
+              <span class="demo-tag">Timetable</span>
               <span class="demo-tag">PT Booking</span>
-              <span class="demo-tag">Membership Plans</span>
-              <span class="demo-tag">Trainer Profiles</span>
+              <span class="demo-tag">Memberships</span>
+              <span class="demo-tag">Trainers</span>
             </div>
-            <div class="demo-link" style="color:#dc2626;">Explore Demo <span>&rarr;</span></div>
+            <div class="demo-link">Explore Demo <span>&rarr;</span></div>
           </div>
         </a>
 
         <!-- Tavola -->
-        <a class="demo-card" href="https://tavola-gray.vercel.app" target="_blank" rel="noopener">
+        <a class="demo-card" href="https://tavola.nbne.uk" target="_blank" rel="noopener">
           <div class="demo-card-img">
             <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&auto=format" alt="Tavola" loading="lazy">
-            <div class="overlay" style="background:linear-gradient(transparent 40%, #059669cc 100%);"></div>
+            <div class="overlay" style="background:linear-gradient(transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
             <div class="label">
               <div class="subtitle">Restaurant &amp; Dining</div>
               <div class="title">Tavola</div>
             </div>
-            <div class="badge badge-live" style="color:#059669;">Live Demo</div>
           </div>
           <div class="demo-card-body">
-            <p>An elegant restaurant website with table reservations, seasonal menus, chef profiles, and event booking for private dining.</p>
+            <p>Table reservations, seasonal menus, chef profiles, and private dining events.</p>
             <div class="demo-tags">
-              <span class="demo-tag">Table Reservations</span>
-              <span class="demo-tag">Menu Display</span>
-              <span class="demo-tag">Event Booking</span>
-              <span class="demo-tag">Chef Profiles</span>
+              <span class="demo-tag">Reservations</span>
+              <span class="demo-tag">Menus</span>
+              <span class="demo-tag">Events</span>
+              <span class="demo-tag">Chefs</span>
             </div>
-            <div class="demo-link" style="color:#059669;">Explore Demo <span>&rarr;</span></div>
+            <div class="demo-link">Explore Demo <span>&rarr;</span></div>
           </div>
         </a>
-
       </div>
-      <p style="text-align:center; margin-top:1.5rem; font-size:0.82rem; color:var(--muted);">
-        Admin login: <strong>owner</strong> / <strong>admin123</strong> &nbsp;&middot;&nbsp;
-        Test checkout: <strong>4242 4242 4242 4242</strong> &mdash; any future expiry, any CVC, any postcode
+
+      <p style="text-align:center; margin-top:2rem; font-size:0.78rem; color:var(--text-muted);">
+        Admin login: <strong style="color:var(--text-secondary);">owner</strong> / <strong style="color:var(--text-secondary);">admin123</strong>
+        &nbsp;&middot;&nbsp;
+        Test checkout: <strong style="color:var(--text-secondary);">4242 4242 4242 4242</strong>
       </p>
     </div>
   </section>
 
-  <!-- Platform Features -->
-  <section id="platform" class="platform">
-    <div class="platform-inner">
-      <div style="text-align:center; margin-bottom:4rem;">
-        <div class="section-label">The Platform</div>
-        <h2 class="section-title">What&rsquo;s Inside Floe</h2>
-        <p class="section-sub">
-          Behind your website sits a complete operating system for your business. Here&rsquo;s everything that&rsquo;s included &mdash; for every client, at every price point.
+  <!-- Pricing -->
+  <section id="pricing" class="section pricing">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">Simple pricing. No surprises.</h2>
+        <p class="section-sub center">
+          One plan. Everything included. No per-seat charges, no feature tiers, no bolt-ons.
         </p>
       </div>
-
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📅</div>
-          <h3>Online Booking</h3>
-          <p>Customers book 24/7. Real-time availability, staff assignment, and instant confirmation.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💳</div>
-          <h3>Stripe Payments</h3>
-          <p>Secure deposits and full payments via Stripe Checkout. No-show protection built in.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">👥</div>
-          <h3>Staff Management</h3>
-          <p>Rotas, timesheets, leave tracking, working hours, and performance all in one place.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>CRM &amp; Leads</h3>
-          <p>Track every enquiry from first contact to paying customer. Full pipeline visibility.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📋</div>
-          <h3>Compliance</h3>
-          <p>Document vault, PAT certificates, disclaimers, and audit trails. Stay inspection-ready.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌐</div>
-          <h3>Beautiful Website</h3>
-          <p>A bespoke, mobile-first website that represents your brand. Not a template &mdash; built for you.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Beta Statement (replaces testimonials) -->
-  <section class="beta-statement">
-    <div class="beta-statement-inner">
-      <h3>Currently in beta &mdash; used by real businesses in the UK.</h3>
-      <p>
-        We&rsquo;re running a small beta programme with 3&ndash;5 businesses before our full launch.
-        Beta users get 3 months free and a lifetime rate of &pound;30/month.
-        Places are limited and filling.
-      </p>
-    </div>
-  </section>
-
-  <!-- Beta Programme -->
-  <section id="beta" class="beta">
-    <div class="beta-inner">
-      <div style="text-align:center; margin-bottom:3rem;">
-        <div class="beta-badge">Limited Places</div>
-        <h2 class="section-title">Get 3 months free. Then &pound;30/month for life.</h2>
-        <p style="font-size:1rem; color:var(--muted); line-height:1.7; max-width:560px; margin:0 auto;">
-          We&rsquo;re looking for a small number of UK businesses to use the full Floe platform free for 3 months &mdash; in exchange for honest feedback. No credit card. No commitment. If you love it, you stay on at &pound;30/month for life (our beta rate, locked in permanently). If it&rsquo;s not for you, walk away &mdash; no hard feelings.
-        </p>
-        <ul class="beta-bullets">
-          <li><span class="check">&#10003;</span> Full access to every module from day one</li>
-          <li><span class="check">&#10003;</span> We set it up for you &mdash; your branding, your services, your domain</li>
-          <li><span class="check">&#10003;</span> Direct line to the people who built it</li>
+      <div class="pricing-card">
+        <div class="price">&pound;40</div>
+        <div class="price-period">per month</div>
+        <div class="setup">&pound;200 one-off setup fee</div>
+        <div class="divider"></div>
+        <ul class="pricing-includes">
+          <li><span class="check">&#10003;</span> All modules included from day one</li>
+          <li><span class="check">&#10003;</span> Bespoke website built for your brand</li>
+          <li><span class="check">&#10003;</span> Unlimited staff accounts</li>
+          <li><span class="check">&#10003;</span> Stripe payments, booking, CRM, compliance</li>
+          <li><span class="check">&#10003;</span> We set it up and configure it for you</li>
+          <li><span class="check">&#10003;</span> UK-based support &mdash; real people, real phone number</li>
+          <li><span class="check">&#10003;</span> Cancel anytime. No lock-in.</li>
         </ul>
+        <a href="#contact" class="btn-primary">Get Started &rarr;</a>
       </div>
+      <p class="pricing-note">
+        The setup fee covers your bespoke website build, data migration, branding configuration,
+        and a one-to-one onboarding session. You&rsquo;re live within a week.
+      </p>
+    </div>
+  </section>
 
-      <div id="betaSuccess" class="beta-success">
-        <div class="tick">&#10003;</div>
-        <h3>You&rsquo;re on the list!</h3>
-        <p id="betaSuccessMsg">We'll be in touch within 48 hours.</p>
+  <!-- How It Works -->
+  <section id="how" class="section how-it-works">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Live within a week. Not a month.</h2>
+        <p class="section-sub center">
+          We handle the technical work. You focus on running your business.
+        </p>
       </div>
-
-      <form id="betaForm" class="beta-form">
-        <div class="beta-row">
-          <div class="beta-field">
-            <label>Business Name *</label>
-            <input type="text" name="business_name" required placeholder="e.g. The Hair Lounge">
-          </div>
-          <div class="beta-field">
-            <label>Your Name *</label>
-            <input type="text" name="contact_name" required placeholder="e.g. Sarah Thompson">
-          </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Tell us about your business</h3>
+          <p>Fill in the form or give us a call. We&rsquo;ll learn what you need &mdash; services, staff, branding, workflows.</p>
         </div>
-
-        <div class="beta-row" style="margin-top:1rem;">
-          <div class="beta-field">
-            <label>Email *</label>
-            <input type="email" name="email" required placeholder="sarah@thehairlounge.co.uk">
-          </div>
-          <div class="beta-field">
-            <label>Phone</label>
-            <input type="tel" name="phone" placeholder="07700 123456">
-          </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>We build and configure</h3>
+          <p>Your site, booking system, staff accounts, compliance vault, and everything else &mdash; set up and branded for you.</p>
         </div>
-
-        <div class="beta-field">
-          <label>Business Type</label>
-          <select name="business_type">
-            <option value="">Select your industry...</option>
-            <option value="salon">Hair / Beauty Salon</option>
-            <option value="barber">Barber Shop</option>
-            <option value="nail">Nail Salon / Nail Technician</option>
-            <option value="restaurant">Restaurant / Caf&eacute; / Bistro</option>
-            <option value="gym">Gym / Fitness Studio</option>
-            <option value="yoga">Yoga / Pilates Studio</option>
-            <option value="pt">Personal Trainer</option>
-            <option value="spa">Spa / Wellness Centre</option>
-            <option value="clinic">Clinic / Healthcare</option>
-            <option value="therapist">Therapist / Counsellor</option>
-            <option value="mindfulness">Mindfulness / Meditation</option>
-            <option value="aesthetics">Beauty Therapist / Aesthetics</option>
-            <option value="pet">Dog Grooming / Pet Services</option>
-            <option value="cleaning">Cleaning / Domestic Services</option>
-            <option value="coaching">Personal Training / Coaching</option>
-            <option value="training">Training / Education / Courses</option>
-            <option value="tattoo">Tattoo / Piercing Studio</option>
-            <option value="physio">Physiotherapy / Sports Therapy</option>
-            <option value="osteo">Osteopath / Chiropractor</option>
-            <option value="other">Other (tell us below)</option>
-          </select>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>You&rsquo;re live</h3>
+          <p>Your business is online with a single login for everything. We&rsquo;re on hand for changes, questions, and support.</p>
         </div>
-
-        <div class="beta-field">
-          <label>Tell us about your business &mdash; the more detail the better</label>
-          <textarea name="message" rows="3" placeholder="What does your business do, how many staff, what tools are you currently using..."></textarea>
-        </div>
-
-        <div id="betaError" class="beta-error"></div>
-
-        <button type="submit" class="beta-submit">Apply for Free Beta Access</button>
-        <p class="beta-note">No credit card. No commitment. We&rsquo;ll be in touch within 48 hours.</p>
-      </form>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="contact-inner">
-      <div class="contact-info">
-        <h2>Get in touch</h2>
-        <p>
-          Whether you've got a question, want a demo walkthrough, or you're ready to get started
-          &mdash; we'd love to hear from you. No pressure, no pushy sales. Just a conversation.
+  <section id="contact" class="section contact">
+    <div class="section-inner">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <div class="section-label">Get Started</div>
+        <h2 class="section-title">Let&rsquo;s talk about your business.</h2>
+        <p class="section-sub center">
+          No pressure. No pushy sales. Tell us what you need and we&rsquo;ll show you what Phloe can do.
         </p>
-        <ul class="contact-details">
-          <li>
-            <span class="icon">📍</span>
-            <span>NBNE Business<br>7 Oak Drive, Lionheart Enterprise Park<br>Alnwick, Northumberland<br>NE66 2EU, UK</span>
-          </li>
-          <li>
-            <span class="icon">📞</span>
-            <span><a href="tel:01665606741">01665 606741</a> (office)</span>
-          </li>
-          <li>
-            <span class="icon">📱</span>
-            <span><a href="tel:07747484353">07747 484353</a> (mobile)</span>
-          </li>
-          <li>
-            <span class="icon">✉️</span>
-            <span><a href="mailto:toby@nbnesigns.com">toby@nbnesigns.com</a></span>
-          </li>
-        </ul>
-        <div class="contact-map">
-          <a href="https://www.google.com/maps/search/?api=1&query=NBNE+Business+7+Oak+Drive+Lionheart+Enterprise+Park+Alnwick+NE66+2EU" target="_blank" rel="noopener">
-            🗺️ View on Google Maps
-          </a>
-        </div>
       </div>
-      <div class="contact-form-wrap">
-        <h3>Send us a message</h3>
-        <div id="formStatus" class="form-status"></div>
-        <form class="contact-form" id="contactForm">
-          <label>
-            Your name *
-            <input type="text" name="name" required autocomplete="name">
-          </label>
-          <label>
-            Email address *
-            <input type="email" name="email" required autocomplete="email">
-          </label>
-          <label>
-            Phone number
-            <input type="tel" name="phone" autocomplete="tel">
-          </label>
-          <label>
-            Message *
-            <textarea name="message" required placeholder="Tell us about your business and what you're looking for..."></textarea>
-          </label>
-          <button type="submit">Send Message</button>
-        </form>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>
+            Whether you&rsquo;ve got a question, want a demo walkthrough, or you&rsquo;re ready to get started
+            &mdash; we&rsquo;d love to hear from you.
+          </p>
+          <ul class="contact-details">
+            <li>
+              <span class="icon">&#128205;</span>
+              <span>NBNE Business<br>7 Oak Drive, Lionheart Enterprise Park<br>Alnwick, Northumberland NE66 2EU</span>
+            </li>
+            <li>
+              <span class="icon">&#128222;</span>
+              <span><a href="tel:01665606741">01665 606741</a></span>
+            </li>
+            <li>
+              <span class="icon">&#128241;</span>
+              <span><a href="tel:07747484353">07747 484353</a></span>
+            </li>
+            <li>
+              <span class="icon">&#9993;</span>
+              <span><a href="mailto:toby@nbnesigns.com">toby@nbnesigns.com</a></span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div id="formStatus" class="form-status"></div>
+          <form class="contact-form" id="contactForm">
+            <label>
+              Your name *
+              <input type="text" name="name" required autocomplete="name">
+            </label>
+            <label>
+              Email address *
+              <input type="email" name="email" required autocomplete="email">
+            </label>
+            <label>
+              Phone number
+              <input type="tel" name="phone" autocomplete="tel">
+            </label>
+            <label>
+              Business type
+              <input type="text" name="business_type" placeholder="e.g. Hair salon, gym, restaurant...">
+            </label>
+            <label>
+              Tell us about your business *
+              <textarea name="message" required placeholder="What does your business do, how many staff, what tools are you currently using..."></textarea>
+            </label>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section id="pricing" class="cta">
+  <section class="cta">
     <div class="cta-inner">
-      <h2>Ready to transform<br>your business?</h2>
+      <h2>Ready to simplify<br>your business?</h2>
       <p>
-        Try our live demos, explore the admin panel, and see exactly what you'll get.
-        No sales calls. No commitment. Just click and explore.
+        Explore a live demo, see the admin panel, and find out what Phloe can do for you.
       </p>
-      <div class="cta-buttons">
+      <div class="hero-buttons">
         <a href="#demos" class="btn-primary">Explore Demos</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
       </div>
-      <p class="cta-note">
-        Demo login: <strong>owner</strong> / <strong>admin123</strong> &mdash; no signup required
-      </p>
-      <p class="cta-note" style="margin-top:0.5rem;">
-        Test checkout: <strong>4242 4242 4242 4242</strong> &mdash; any future expiry, any CVC, any postcode
-      </p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-logo">NBNE</div>
+      <div class="footer-logo">Phloe</div>
       <div class="footer-links">
-        <a href="https://salon-x2.vercel.app" target="_blank" rel="noopener">Salon Demo</a>
-        <a href="https://nbne-business-health-club-x.vercel.app" target="_blank" rel="noopener">Gym Demo</a>
-        <a href="https://tavola-gray.vercel.app" target="_blank" rel="noopener">Restaurant Demo</a>
+        <a href="#modules">Platform</a>
+        <a href="#demos">Demos</a>
+        <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="footer-copy">&copy; 2026 NBNE. All rights reserved.</div>
+      <div class="footer-copy">&copy; 2026 Phloe by NBNE. All rights reserved.</div>
     </div>
   </footer>
 
@@ -1035,51 +810,6 @@
       mobileBtn.innerHTML = '&#9776;';
     }
 
-    // Beta signup form
-    const betaForm = document.getElementById('betaForm');
-    const betaError = document.getElementById('betaError');
-    const betaSuccess = document.getElementById('betaSuccess');
-    const betaSuccessMsg = document.getElementById('betaSuccessMsg');
-    betaForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = betaForm.querySelector('button');
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
-      betaError.className = 'beta-error';
-      betaError.textContent = '';
-
-      const data = {
-        business_name: betaForm.business_name.value.trim(),
-        contact_name: betaForm.contact_name.value.trim(),
-        email: betaForm.email.value.trim(),
-        phone: betaForm.phone.value.trim(),
-        business_type: betaForm.business_type.value,
-        message: betaForm.message.value.trim(),
-      };
-
-      try {
-        const res = await fetch('https://nbneplatform-production.up.railway.app/api/beta-signup/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        const json = await res.json();
-        if (res.ok) {
-          betaSuccessMsg.textContent = json.message || "We'll be in touch within 48 hours.";
-          betaSuccess.classList.add('show');
-          betaForm.style.display = 'none';
-        } else {
-          betaError.className = 'beta-error show';
-          betaError.textContent = json.error || 'Something went wrong. Please try again.';
-        }
-      } catch (err) {
-        betaError.className = 'beta-error show';
-        betaError.textContent = 'Network error. Please email us at toby@nbnesigns.com.';
-      }
-      btn.disabled = false;
-      btn.textContent = 'Apply for Free Beta Access';
-    });
-
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
@@ -1095,11 +825,12 @@
         name: contactForm.name.value.trim(),
         email: contactForm.email.value.trim(),
         phone: contactForm.phone.value.trim(),
+        business_type: contactForm.business_type.value.trim(),
         message: contactForm.message.value.trim(),
       };
 
       try {
-        const res = await fetch('https://nbneplatform-production.up.railway.app/api/contact/', {
+        const res = await fetch('/api/contact/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
@@ -1107,7 +838,7 @@
         const json = await res.json();
         if (res.ok) {
           formStatus.className = 'form-status success';
-          formStatus.textContent = 'Message sent! We\'ll be in touch shortly.';
+          formStatus.textContent = "Message sent! We'll be in touch shortly.";
           contactForm.reset();
         } else {
           formStatus.className = 'form-status error';
