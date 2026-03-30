@@ -75,11 +75,13 @@
     }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a {
-      color: var(--text-secondary); text-decoration: none;
+      color: rgba(255,255,255,0.8); text-decoration: none;
       font-size: 0.85rem; font-weight: 500;
       letter-spacing: 0.01em; transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: #fff; }
+    .nav.scrolled .nav-links a { color: var(--text-secondary); }
+    .nav.scrolled .nav-links a:hover { color: var(--text); }
     .nav-links .btn-nav {
       background: var(--accent); color: #fff !important;
       padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 600;
@@ -107,17 +109,23 @@
 
     /* ── Hero ── */
     .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 6rem 2rem 4rem;
-      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(108,92,231,0.12) 0%, transparent 70%);
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem 2rem 3rem;
+      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format');
+      background-size: cover; background-position: center;
     }
-    .hero-content { max-width: 800px; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.7) 100%);
+    }
+    .hero-content { position: relative; max-width: 800px; }
     .hero-badge {
       display: inline-block; padding: 0.35rem 1rem; border-radius: 20px;
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
       text-transform: uppercase; margin-bottom: 2rem;
-      color: var(--accent); background: var(--accent-glow);
-      border: 1px solid rgba(108,92,231,0.2);
+      color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(8px);
     }
     .hero h1 {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -125,10 +133,10 @@
       margin-bottom: 1.5rem; letter-spacing: -0.03em;
       color: var(--text);
     }
-    .hero h1 .dim { color: var(--text-secondary); font-weight: 400; }
+    .hero h1 .dim { color: rgba(255,255,255,0.7); font-weight: 300; }
     .hero-sub {
       font-size: clamp(1rem, 2vw, 1.15rem);
-      color: var(--text-secondary); font-weight: 400;
+      color: rgba(255,255,255,0.75); font-weight: 400;
       margin-bottom: 2.5rem; line-height: 1.65;
       max-width: 600px; margin-left: auto; margin-right: auto;
     }
@@ -139,6 +147,14 @@
       border-radius: 6px; transition: opacity 0.2s; border: none; cursor: pointer;
     }
     .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12); color: #fff; padding: 0.85rem 2rem;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.3); border-radius: 6px;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s, border-color 0.2s; cursor: pointer;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }
     .btn-ghost {
       background: transparent; color: var(--text-secondary); padding: 0.85rem 2rem;
       text-decoration: none; font-weight: 500; font-size: 0.9rem;
@@ -148,7 +164,7 @@
     .btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
     .trust-bar {
       display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 3rem; font-size: 0.78rem; color: var(--text-muted);
+      margin-top: 3rem; font-size: 0.78rem; color: rgba(255,255,255,0.45);
       letter-spacing: 0.02em;
     }
 
@@ -421,15 +437,16 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-badge">Built in the UK for small businesses</div>
-      <h1>Your entire business.<br><span class="dim">One platform. One price.</span></h1>
+      <h1>Your entire business.<br><span class="dim">One login. One price.</span></h1>
       <p class="hero-sub">
-        Phloe gives small service businesses everything they need to operate &mdash; booking, payments, staff, compliance, CRM, comms, documents, and a beautiful website &mdash; for one flat monthly fee.
+        Phloe gives small service businesses everything they need to operate &mdash; booking, payments, staff, compliance, CRM, team comms, documents, and a beautiful website &mdash; for one flat monthly fee. No per-seat charges. No bolt-ons. No faff.
       </p>
       <div class="hero-buttons">
         <a href="#demos" class="btn-primary">Explore Live Demos &rarr;</a>
-        <a href="#contact" class="btn-ghost">Get in Touch</a>
+        <a href="#beta" class="btn-secondary">Join the Free Beta</a>
       </div>
       <div class="trust-bar">
         <span>UK-built &amp; hosted</span>
@@ -439,6 +456,8 @@
         <span>Unlimited staff</span>
         <span>&middot;</span>
         <span>Cancel anytime</span>
+        <span>&middot;</span>
+        <span>Free for 3 months (beta)</span>
       </div>
     </div>
   </section>
@@ -772,7 +791,7 @@
       </p>
       <div class="hero-buttons">
         <a href="#demos" class="btn-primary">Explore Demos</a>
-        <a href="#contact" class="btn-ghost">Get in Touch</a>
+        <a href="#contact" class="btn-ghost">Get in Touch &rarr;</a>
       </div>
     </div>
   </section>
