@@ -409,6 +409,116 @@
     .footer-links a { color: var(--text-muted); text-decoration: none; }
     .footer-links a:hover { color: var(--text-secondary); }
     .footer-copy { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Live Sites Showcase ── */
+    .showcase {
+      background: #060608;
+      padding: 5rem 0 4rem;
+      overflow: hidden;
+    }
+    .showcase-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .showcase-header { text-align: center; margin-bottom: 3rem; }
+    .showcase-header .section-label { margin-bottom: 0.75rem; }
+    .showcase-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800; letter-spacing: -0.03em; color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .showcase-header p {
+      color: var(--text-secondary); font-size: 1rem; max-width: 560px; margin: 0 auto; line-height: 1.65;
+    }
+    /* Track wrapper */
+    .showcase-track-outer {
+      position: relative;
+      overflow: hidden;
+    }
+    .showcase-track {
+      display: flex;
+      gap: 1.25rem;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    /* Individual cards */
+    .showcase-card {
+      flex: 0 0 calc(33.333% - 0.84rem);
+      min-width: 280px;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    @media (max-width: 900px) {
+      .showcase-card { flex: 0 0 calc(50% - 0.625rem); }
+    }
+    @media (max-width: 580px) {
+      .showcase-card { flex: 0 0 calc(100% - 0rem); }
+    }
+    .showcase-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .sc-accent-bar {
+      height: 4px;
+      width: 100%;
+    }
+    .sc-body {
+      padding: 1.5rem 1.5rem 1.25rem;
+    }
+    .sc-pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 0.9rem;
+      background: rgba(255,255,255,0.05); padding: 0.3rem 0.65rem; border-radius: 20px;
+    }
+    .sc-pill::before { content: '●'; font-size: 0.55rem; }
+    .sc-name {
+      font-size: 1.15rem; font-weight: 700; color: var(--text);
+      letter-spacing: -0.02em; margin-bottom: 0.4rem;
+    }
+    .sc-location {
+      font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sc-tagline {
+      font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+      margin-bottom: 1.1rem;
+    }
+    .sc-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.45rem 0.9rem; border-radius: 6px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .sc-link:hover { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.22); }
+    .sc-link svg { width: 12px; height: 12px; }
+    /* Controls */
+    .showcase-controls {
+      display: flex; justify-content: center; align-items: center; gap: 1rem;
+      margin-top: 2rem;
+    }
+    .sc-btn {
+      width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+      background: var(--bg-card); color: var(--text-secondary); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      font-size: 1rem; line-height: 1;
+    }
+    .sc-btn:hover { border-color: var(--border-hover); color: var(--text); background: rgba(255,255,255,0.05); }
+    .sc-dots {
+      display: flex; gap: 6px; align-items: center;
+    }
+    .sc-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.18); cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .sc-dot.active { background: rgba(255,255,255,0.75); transform: scale(1.3); }
   </style>
 </head>
 <body>
@@ -456,6 +566,123 @@
         <span>Unlimited staff</span>
         <span>&middot;</span>
         <span>Cancel anytime</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Sites Showcase -->
+  <section class="showcase">
+    <div class="showcase-inner">
+      <div class="showcase-header">
+        <div class="section-label">Live &amp; Public</div>
+        <h2>Real businesses. Real software.</h2>
+        <p>Every site below is a live Phloe installation you can log into and explore — not a mockup.</p>
+      </div>
+      <div class="showcase-track-outer">
+        <div class="showcase-track" id="scTrack">
+
+          <!-- The Colour Room — salon -->
+          <a class="showcase-card" href="https://pg-salon.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-accent-bar" style="background:#e94560;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#e94560;">Appointments &amp; Bookings</div>
+              <div class="sc-name">The Colour Room</div>
+              <div class="sc-location">Edinburgh &middot; Hair Salon</div>
+              <div class="sc-tagline">Award-winning colour &amp; style. Online booking with deposits, full staff rota and client CRM.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- Hartley Osteopathic Clinic — solo practitioner -->
+          <a class="showcase-card" href="https://pg-osteopath.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-accent-bar" style="background:#3a7d44;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#3a7d44;">Solo Practitioner</div>
+              <div class="sc-name">Hartley Osteopathic Clinic</div>
+              <div class="sc-location">York &middot; Osteopath &amp; Sports Therapy</div>
+              <div class="sc-tagline">Consultation-led booking with compliance documents, intake forms and automated follow-up reminders.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- Sunstone Yoga — class/timetable -->
+          <a class="showcase-card" href="https://pg-yoga.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-accent-bar" style="background:#c9722c;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#c9722c;">Class Timetable</div>
+              <div class="sc-name">Sunstone Yoga</div>
+              <div class="sc-location">Cambridge &middot; Yoga Studio</div>
+              <div class="sc-tagline">Weekly timetable, per-class capacity, class credits and a 22-session rolling schedule across 8 class types.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- The Larder Cookery School — one-off class events -->
+          <a class="showcase-card" href="https://pg-cookery.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-accent-bar" style="background:#8b2635;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#c0392b;">One-off Class Events</div>
+              <div class="sc-name">The Larder Cookery School</div>
+              <div class="sc-location">Bath &middot; Cookery School</div>
+              <div class="sc-tagline">17 scheduled masterclasses across 10 course types. Capacity-limited, pre-paid, with full refund policy enforcement.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- Le Petit Marché — restaurant reservations -->
+          <a class="showcase-card" href="https://pg-bistro.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-accent-bar" style="background:#4a6fa5;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#4a6fa5;">Table Reservations</div>
+              <div class="sc-name">Le Petit Marché</div>
+              <div class="sc-location">London &middot; French Bistro</div>
+              <div class="sc-tagline">10-table restaurant with lunch and dinner service windows, party-size routing and table-turn management.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- Harbour Lights — food ordering -->
+          <a class="showcase-card" href="https://pg-chippy.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-accent-bar" style="background:#1565c0;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#4a90d9;">Food Ordering</div>
+              <div class="sc-name">Harbour Lights</div>
+              <div class="sc-location">Seahouses, Northumberland &middot; Fish &amp; Chips</div>
+              <div class="sc-tagline">Pre-order queue with real-time wait times, kitchen capacity throttle and dietary flags across a full chippy menu.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- Clay & Fire Ceramics Studio — capacity-limited classes -->
+          <a class="showcase-card" href="https://pg-craft.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-accent-bar" style="background:#9b6040;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#c17f4e;">Capacity-Limited Classes</div>
+              <div class="sc-name">Clay &amp; Fire Ceramics Studio</div>
+              <div class="sc-location">Sheffield &middot; Pottery Studio</div>
+              <div class="sc-tagline">Wheel-limited classes (6 places), hand-building workshops, kids sessions and Date Night Pottery with paired booking.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- Botanica Day Spa — multi-service appointment + shop -->
+          <a class="showcase-card" href="https://pg-spa.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-accent-bar" style="background:#3d6b4f;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#5a9e6f;">Multi-service Spa</div>
+              <div class="sc-name">Botanica Day Spa</div>
+              <div class="sc-location">Manchester &middot; Day Spa</div>
+              <div class="sc-tagline">14 treatments across massage, facials and experiences. 30% deposits, spa day packages, retail shop and gift vouchers.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+        </div><!-- /.showcase-track -->
+      </div><!-- /.showcase-track-outer -->
+      <div class="showcase-controls">
+        <button class="sc-btn" id="scPrev" aria-label="Previous">&#8592;</button>
+        <div class="sc-dots" id="scDots"></div>
+        <button class="sc-btn" id="scNext" aria-label="Next">&#8594;</button>
       </div>
     </div>
   </section>
@@ -890,6 +1117,83 @@
       btn.disabled = false;
       btn.textContent = 'Send Message';
     });
+  </script>
+
+  <script>
+    /* ── Showcase Carousel ── */
+    (function () {
+      const track = document.getElementById('scTrack');
+      const dotsContainer = document.getElementById('scDots');
+      const prevBtn = document.getElementById('scPrev');
+      const nextBtn = document.getElementById('scNext');
+      if (!track) return;
+
+      const cards = Array.from(track.children);
+      const total = cards.length;
+      let current = 0;
+      let autoTimer = null;
+
+      function visibleCount() {
+        const w = track.parentElement.offsetWidth;
+        if (w < 580) return 1;
+        if (w < 900) return 2;
+        return 3;
+      }
+
+      function maxIndex() {
+        return Math.max(0, total - visibleCount());
+      }
+
+      // Build dots
+      for (let i = 0; i <= maxIndex(); i++) {
+        const dot = document.createElement('button');
+        dot.className = 'sc-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+
+      function updateDots() {
+        Array.from(dotsContainer.children).forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function goTo(idx) {
+        current = Math.max(0, Math.min(idx, maxIndex()));
+        const cardWidth = cards[0].offsetWidth + 20; // 20 = gap (1.25rem ≈ 20px)
+        track.style.transform = `translateX(-${current * cardWidth}px)`;
+        updateDots();
+      }
+
+      function next() { goTo(current >= maxIndex() ? 0 : current + 1); }
+      function prev() { goTo(current <= 0 ? maxIndex() : current - 1); }
+
+      prevBtn.addEventListener('click', () => { resetAuto(); prev(); });
+      nextBtn.addEventListener('click', () => { resetAuto(); next(); });
+
+      function startAuto() {
+        autoTimer = setInterval(next, 4500);
+      }
+      function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+      }
+      startAuto();
+
+      // Swipe support
+      let touchStartX = 0;
+      track.parentElement.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+      track.parentElement.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) { resetAuto(); dx < 0 ? next() : prev(); }
+      }, { passive: true });
+
+      // Reflow on resize
+      window.addEventListener('resize', () => goTo(current));
+    })();
   </script>
 
 </body>
