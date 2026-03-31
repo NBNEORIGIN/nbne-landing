@@ -466,8 +466,20 @@
       height: 4px;
       width: 100%;
     }
+    .sc-hero {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .sc-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%);
+    }
     .sc-body {
-      padding: 1.5rem 1.5rem 1.25rem;
+      padding: 1.25rem 1.5rem 1.25rem;
     }
     .sc-pill {
       display: inline-flex; align-items: center; gap: 0.35rem;
@@ -581,8 +593,61 @@
       <div class="showcase-track-outer">
         <div class="showcase-track" id="scTrack">
 
-          <!-- The Colour Room — salon -->
+          <!-- Salon X — real client, hair salon -->
+          <a class="showcase-card" href="https://salon-x.nbne.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80&auto=format');"></div>
+            <div class="sc-accent-bar" style="background:#8B6F47;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#8B6F47;">Live Client &middot; Appointments</div>
+              <div class="sc-name">Salon X</div>
+              <div class="sc-location">Hair Salon &middot; Phloe Client</div>
+              <div class="sc-tagline">Full appointment booking with deposits, staff rota, client CRM and automated reminders.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- The Pizza Shack — real client, restaurant -->
+          <a class="showcase-card" href="https://pizza-shack-x.nbne.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80&auto=format');"></div>
+            <div class="sc-accent-bar" style="background:#c0392b;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#c0392b;">Live Client &middot; Restaurant</div>
+              <div class="sc-name">The Pizza Shack</div>
+              <div class="sc-location">Pizza Restaurant &middot; Phloe Client</div>
+              <div class="sc-tagline">Table reservations with party-size routing, service windows, walk-in management and online ordering.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- Tavola — real client, Italian restaurant -->
+          <a class="showcase-card" href="https://tavola.nbne.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80&auto=format');"></div>
+            <div class="sc-accent-bar" style="background:#7c3626;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#c0622b;">Live Client &middot; Restaurant</div>
+              <div class="sc-name">Tavola</div>
+              <div class="sc-location">Italian Restaurant &middot; Phloe Client</div>
+              <div class="sc-tagline">Restaurant reservations with seasonal menus, covers management and integrated booking flow.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- FitHub — real client, gym/fitness -->
+          <a class="showcase-card" href="https://nbne-business-health-club-x.vercel.app" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&auto=format');"></div>
+            <div class="sc-accent-bar" style="background:#dc2626;"></div>
+            <div class="sc-body">
+              <div class="sc-pill" style="color:#dc2626;">Live Client &middot; Gym &amp; Fitness</div>
+              <div class="sc-name">FitHub</div>
+              <div class="sc-location">Gym &amp; Health Club &middot; Phloe Client</div>
+              <div class="sc-tagline">Class timetable, membership management, personal training bookings and drop-in capacity control.</div>
+              <span class="sc-link">Visit live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg></span>
+            </div>
+          </a>
+
+          <!-- The Colour Room — salon demo -->
           <a class="showcase-card" href="https://pg-salon.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80&auto=format');"></div>
             <div class="sc-accent-bar" style="background:#e94560;"></div>
             <div class="sc-body">
               <div class="sc-pill" style="color:#e94560;">Appointments &amp; Bookings</div>
@@ -595,6 +660,7 @@
 
           <!-- Hartley Osteopathic Clinic — solo practitioner -->
           <a class="showcase-card" href="https://pg-osteopath.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80&auto=format');"></div>
             <div class="sc-accent-bar" style="background:#3a7d44;"></div>
             <div class="sc-body">
               <div class="sc-pill" style="color:#3a7d44;">Solo Practitioner</div>
@@ -607,6 +673,7 @@
 
           <!-- Sunstone Yoga — class/timetable -->
           <a class="showcase-card" href="https://pg-yoga.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&auto=format');"></div>
             <div class="sc-accent-bar" style="background:#c9722c;"></div>
             <div class="sc-body">
               <div class="sc-pill" style="color:#c9722c;">Class Timetable</div>
@@ -619,6 +686,7 @@
 
           <!-- The Larder Cookery School — one-off class events -->
           <a class="showcase-card" href="https://pg-cookery.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80&auto=format');"></div>
             <div class="sc-accent-bar" style="background:#8b2635;"></div>
             <div class="sc-body">
               <div class="sc-pill" style="color:#c0392b;">One-off Class Events</div>
@@ -631,6 +699,7 @@
 
           <!-- Le Petit Marché — restaurant reservations -->
           <a class="showcase-card" href="https://pg-bistro.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&auto=format');"></div>
             <div class="sc-accent-bar" style="background:#4a6fa5;"></div>
             <div class="sc-body">
               <div class="sc-pill" style="color:#4a6fa5;">Table Reservations</div>
@@ -643,6 +712,7 @@
 
           <!-- Harbour Lights — food ordering -->
           <a class="showcase-card" href="https://pg-chippy.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&q=80&auto=format');"></div>
             <div class="sc-accent-bar" style="background:#1565c0;"></div>
             <div class="sc-body">
               <div class="sc-pill" style="color:#4a90d9;">Food Ordering</div>
@@ -655,6 +725,7 @@
 
           <!-- Clay & Fire Ceramics Studio — capacity-limited classes -->
           <a class="showcase-card" href="https://pg-craft.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80&auto=format');"></div>
             <div class="sc-accent-bar" style="background:#9b6040;"></div>
             <div class="sc-body">
               <div class="sc-pill" style="color:#c17f4e;">Capacity-Limited Classes</div>
@@ -667,6 +738,7 @@
 
           <!-- Botanica Day Spa — multi-service appointment + shop -->
           <a class="showcase-card" href="https://pg-spa.phloe.co.uk" target="_blank" rel="noopener">
+            <div class="sc-hero" style="background-image:url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80&auto=format');"></div>
             <div class="sc-accent-bar" style="background:#3d6b4f;"></div>
             <div class="sc-body">
               <div class="sc-pill" style="color:#5a9e6f;">Multi-service Spa</div>
